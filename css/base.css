@@ -9,17 +9,23 @@
 .keywords-purple {
   display: inline-block;
   margin-top: 5px;
-  padding: 2px 4px;
+  padding: 0 4px;
   font-size: 90%;
   color: #7f4a88;
   background-color: #fbede1;
+  border: 1px solid #ddd;
   border-radius: 4px; }
 
 .keywords-green {
-  padding: 2px 4px;
+  margin: 0 2px;
+  padding: 0 4px;
   font-size: 90%;
   color: #2e8b5c;
   background-color: #dde5da;
+  border: 1px solid #009688;
   border-radius: 4px; }
+
+.text-purple {
+  color: #7f4a88; }
 
 /*# sourceMappingURL=base.css.map */

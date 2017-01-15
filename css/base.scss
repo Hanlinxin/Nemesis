@@ -1,8 +1,11 @@
-@mixin keywords($c1:#4c4177,$c2:#FFD9E8){
-  padding: 2px 4px;
+@charset "UTF-8";
+//c1：文字颜色 c2：背景色 c3 边框颜色
+@mixin keywords($c1:#4c4177,$c2:#FFD9E8,$c3:#ddd){
+  padding: 0 4px;
   font-size: 90%;
   color: $c1;
   background-color: $c2;
+  border: 1px solid  $c3;
   border-radius: 4px;
 }
 
@@ -26,5 +29,10 @@
 }
 
 .keywords-green {
-  @include keywords(#2e8b5c,#dde5da);
+  margin: 0 2px;
+  @include keywords(#2e8b5c,#dde5da,#009688);
+}
+
+.text-purple{
+  color: #7f4a88;
 }
