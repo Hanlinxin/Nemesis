@@ -1,0 +1,30 @@
+@mixin keywords($c1:#4c4177,$c2:#FFD9E8){
+  padding: 2px 4px;
+  font-size: 90%;
+  color: $c1;
+  background-color: $c2;
+  border-radius: 4px;
+}
+
+@mixin callout($color:#7f4a88){
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+  border-left-color: $color;
+}
+
+.callout {
+  @include callout()
+}
+
+.keywords-purple {
+  display: inline-block;
+  margin-top: 5px;
+  @include keywords(#7f4a88,#fbede1);
+}
+
+.keywords-green {
+  @include keywords(#2e8b5c,#dde5da);
+}

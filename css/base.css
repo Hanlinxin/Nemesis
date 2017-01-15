@@ -1,0 +1,25 @@
+.callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+  border-left-color: #7f4a88; }
+
+.keywords-purple {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #7f4a88;
+  background-color: #fbede1;
+  border-radius: 4px; }
+
+.keywords-green {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #2e8b5c;
+  background-color: #dde5da;
+  border-radius: 4px; }
+
+/*# sourceMappingURL=base.css.map */
