@@ -1,4 +1,8 @@
 @charset "UTF-8";
+body,html,.jumbotron {
+  background-color: #323232;
+}
+
 //c1：文字颜色 c2：背景色 c3 边框颜色
 @mixin keywords($c1:#4c4177,$c2:#FFD9E8,$c3:#ddd){
   padding: 0 4px;
@@ -33,17 +37,38 @@
   @include keywords(#2e8b5c,#dde5da,#009688);
 }
 
+.header {
+  margin-bottom: 55px;
+}
+
 .banner {
-  position: relative;
-  padding: 30px 15px;
-  color: #cdbfe3;
-  text-align: center;
-  text-shadow: 0 1px 0 rgba(0,0,0,.1);
-  background-color: #080808;
-  background-image: -webkit-gradient(linear,left top,left bottom,from(#563d7c),to(#6f5499));
-  background-image: -webkit-linear-gradient(top,#563d7c 0,#6f5499 100%);
-  background-image: -o-linear-gradient(top,#563d7c 0,#6f5499 100%);
-  background-image: linear-gradient(to bottom,#563d7c 0,#6f5499 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#563d7c', endColorstr='#6F5499', GradientType=0);
-  background-repeat: repeat-x;
+  background-image: url(../img/test_0.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  height: 300px;
+  padding-top: 200px;
+
+  >span {
+    color: #ffd9e8;
+    text-shadow: 0 0 5px #c131da;
+    font-size: 16px;
+  }
+}
+
+.jumbotron {
+  margin-bottom: 0;
+}
+
+.panel-default>.panel-purple {
+  padding: 10px 15px;
+  border-bottom: 1px solid #000;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  color: #9d9d9d;
+  background-color: #222;
+}
+
+.footer {
+  border-top: 4px solid #ee9905;
 }
