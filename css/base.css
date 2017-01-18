@@ -1,5 +1,17 @@
 body, html, .jumbotron {
-  background-color: #575757; }
+  background-color: #111; }
+
+body {
+  position: relative; }
+
+@font-face {
+  font-family: 'iconfont';
+  /* project id 223365 */
+  src: url("//at.alicdn.com/t/font_qife17nyiz6hto6r.eot");
+  src: url("//at.alicdn.com/t/font_qife17nyiz6hto6r.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_qife17nyiz6hto6r.woff") format("woff"), url("//at.alicdn.com/t/font_qife17nyiz6hto6r.ttf") format("truetype"), url("//at.alicdn.com/t/font_qife17nyiz6hto6r.svg#iconfont") format("svg"); }
+.iconfont {
+  font-family: 'iconfont';
+  font-size: inherit; }
 
 .callout {
   padding: 20px;
@@ -10,13 +22,12 @@ body, html, .jumbotron {
   border-left-color: #7f4a88; }
 
 .keywords-purple {
-  display: inline-block;
-  margin-top: 5px;
+  margin: 0 2px;
   padding: 0 4px;
   font-size: 90%;
   color: #7f4a88;
   background-color: #fbede1;
-  border: 1px solid #ddd;
+  border: 1px solid transparent;
   border-radius: 4px; }
 
 .keywords-green {
@@ -28,8 +39,28 @@ body, html, .jumbotron {
   border: 1px solid #009688;
   border-radius: 4px; }
 
+.keywords-pink {
+  margin: 0 2px;
+  padding: 0 4px;
+  font-size: 90%;
+  color: #ff8532;
+  background-color: #fdede1;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 1.1em; }
+
+.keywords-strong {
+  margin: 15px 2px;
+  padding: 0 4px;
+  font-size: 90%;
+  color: #fff;
+  background-color: #f73f52;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 1.1em; }
+
 .header {
-  margin-bottom: 50px; }
+  padding-top: 50px; }
 
 .banner {
   background-image: url(../img/banner.png);
@@ -38,10 +69,6 @@ body, html, .jumbotron {
   background-position-x: center;
   height: 135px;
   padding-top: 50px; }
-  .banner > span {
-    color: #ffd9e8;
-    text-shadow: 0 0 5px #c131da;
-    font-size: 16px; }
 
 .jumbotron {
   padding: 10px 0px;
@@ -55,10 +82,42 @@ body, html, .jumbotron {
   color: #9d9d9d;
   background-color: #222; }
 
+#nav {
+  top: 55px; }
+  #nav > ul > li.active > a {
+    text-decoration: none;
+    background-color: #7f4a88; }
+
 .footer {
+  margin-top: 20px;
   border-top: 4px solid #7d7d7d; }
 
 .bg-red {
   background-color: #f44336 !important; }
+
+.bg-black {
+  background-color: #222222; }
+
+.main {
+  border: 1px solid #8f92a3;
+  background-color: #323232; }
+
+.text-red {
+  color: #d63243; }
+
+.font-orange {
+  color: #ffe6b5;
+  text-shadow: 0 0 5px #fa7601;
+  font-size: 16px; }
+
+.navs-white > li > a {
+  color: #fbede1; }
+
+.text-yellow {
+  color: #fbd157; }
+
+.nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #7f4a88; }
 
 /*# sourceMappingURL=base.css.map */

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+</head>
+<body data-spy="scroll" data-target="#nav">
+<header class="header">
+    <!--Menu Start-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://bbs.colg.cn/">
+                    <img src="../img/logo.png" title="沃特碧们的Colg">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="main-nav">
+                <ul class="nav navbar-nav">
+                    <li><a href="../index.html">HOME</a></li>
+                    <li class="active dropdown">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">减防算法 <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">固定类与百分比类装备</a></li>
+                            <li><a href="#">百分比与百分比类装备</a></li>
+                            <li><a href="#">角色技能与百分比类装备</a></li>
+                            <li><a href="#">角色技能与角色技能</a></li>
+                            <li><a href="#">无视目标防御</a></li>
+                            <li><a href="#">结论</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">测试条件 <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">普通安徒恩副本</a></li>
+                            <li><a href="#">暴走安徒恩副本</a></li>
+                            <li><a href="#">普通卢克副本（西海岸版本）</a></li>
+                            <li><a href="#">固定值减防类装备</a></li>
+                            <li><a href="#">百分比减防类装备</a></li>
+                            <li><a href="#">无视防御类装备</a></li>
+                            <li><a href="#">结论</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">测试条件 <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">减伤率下限</a></li>
+                            <li><a href="#">减防类道具变更</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">小工具「TEST」</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Menu End-->
+</header>
+<!--Banner Start-->
+<div class="jumbotron">
+    <div class="container banner">
+    </div>
+</div>
+<!--Banner End-->
+<!--主要内容 Start-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 main">
+            <div class="page-header">
+                <h1>减防算法</h1>
+            </div>
+            <section id="item">
+                <h2 class="text-yellow">固定类与百分比类装备</h2>
+                <hr>
+                <p class="keywords-strong">固定值类型与百分比类型的装备同时存在时，先计算固定值部分，后计算百分比部分。</p>
+                <table class="table bg-black text-center table-striped">
+                    <thead>
+                        <th></th>
+                        <th>虫桩</th>
+                        <th>千蛛衣</th>
+                        <th>千蛛衣+魔剑眼 <span class="iconfont text-danger" data-toggle="tooltip"
+                        data-placement="top" title="假设先计算固定值">&#xe698;</span></th>
+                        <th>千蛛衣+魔剑眼 <span class="iconfont text-danger" data-toggle="tooltip"
+                                          data-placement="top" title="假设先计算百分比">&#xe698;</span></th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>防御值</td>
+                            <td>169012</td>
+                            <td>157012</td>
+                            <td>141311</td>
+                            <td>140111</td>
+                        </tr>
+                        <tr>
+                            <td>减伤率</td>
+                            <td>90.76%</td>
+                            <td>90.13%</td>
+                            <td>89.15%</td>
+                            <td>89.07%</td>
+                        </tr>
+                        <tr>
+                            <td>伤害比率</td>
+                            <td>9.24%</td>
+                            <td>9.87%</td>
+                            <td>10.85%</td>
+                            <td>10.93%</td>
+                        </tr>
+                        <tr class="font-orange">
+                            <td>实际伤害1</td>
+                            <td>36218</td>
+                            <td>38719</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr class="font-orange">
+                            <td>实际伤害2</td>
+                            <td>36218</td>
+                            <td>38719</td>
+                            <td>42552</td>
+                            <td>-</td>
+                        </tr>
+                        <tr class="font-orange">
+                            <td>模拟伤害</td>
+                            <td>-</td>
+                            <td>38713</td>
+                            <td>42554</td>
+                            <td>42879</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>虫桩的原始防御为169012，对应减伤率为90.76%，故伤害比率为9.24%</p>
+                <p>将其设置为中毒状态，攻击并触发<span class="keywords-pink">千蛛上衣</span>的减防效果，此时伤害为36218</p>
+                <br>
+                <p>触发<span class="keywords-pink">千蛛上衣</span>的减防效果后，其防御为169012-12000=157012</p>
+                <p>对应减伤率为90.13%，故伤害比率为9.87%，模拟伤害为38713，与实际伤害38719吻合</p>。
+                <br>
+                <p>佩戴<span class="keywords-pink">阿波菲斯之眼</span>经过5s后，减防光环生效，由此测试两类减防装备的算法：</p>
+                <br>
+                <h4 class="text-red">若先计算固定值部分：</h4>
+                <p>则计算后防御为<span class="keywords-purple">（169012-12000）*（1-10%）=141311</span></p>
+                <p>对应减伤率为89.15%，故伤害比率为10.85%，模拟伤害为42554</p>
+                <br>
+                <h4 class="text-red">若先计算百分比部分：</h4>
+                <p>则计算后防御为<span class="keywords-purple">[169012*（1-10%）]-12000=140111</span></p>
+                <p>对应减伤率为89.07%，故伤害比率为10.93%，模拟伤害为42879</p>
+                <br>
+                <p>实际伤害为42552，与先计算固定值部分的模拟伤害42554吻合</p>
+                <p>故固定值类型与百分比类型的装备同时存在时，先计算固定值部分，后计算百分比部分</p>
+                <figure class="thumbnail row">
+                    <img class="col-md-3" src="../img/arithmetic/0.png">
+                    <img class="col-md-3" src="../img/arithmetic/1.png">
+                    <img class="col-md-3" src="../img/arithmetic/2.png">
+                    <img class="col-md-3" src="../img/arithmetic/3.png">
+                    <img class="col-md-3" src="../img/arithmetic/5.png" height="150">
+                    <img class="col-md-3" src="../img/arithmetic/4.png">
+                </figure>
+            </section>
+            <section id="item-pct">
+                <h2 class="text-yellow">百分比与百分比类装备</h2>
+                <hr>
+                <p class="keywords-strong">百分比类型与百分比类型的装备同时存在时，二者的减防效果为乘算。</p>
+            </section>
+        </div>
+        <div class="col-md-3 hidden-xs hidden-sm">
+            <div id="nav" class="navbar-example">
+                <ul class="nav navs-white" role="tablist">
+                    <li><a href="#item">固定类与百分比类装备</a></li>
+                    <li><a href="#item-pct">百分比与百分比类装备</a></li>
+                    <li><a href="#">角色技能与百分比类装备</a></li>
+                    <li><a href="#">角色技能与角色技能</a></li>
+                    <li><a href="#">无视目标防御</a></li>
+                    <li><a href="#">结论</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--主要内容 End-->
+<!--Footer Start-->
+<footer class="footer">
+    <div class="container text-center">
+        TEST
+        <div class="thumbnail hidden-lg hidden-md hidden-sm">
+            <img src="../img/MagicArray.png" width="100">
+            <span>关注微信号</span>
+        </div>
+    </div>
+</footer>
+<!--Footer End-->
+
+
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/base.js"></script>
+</body>
+</html>
