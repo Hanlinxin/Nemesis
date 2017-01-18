@@ -1,5 +1,5 @@
 body, html, .jumbotron {
-  background-color: #323232; }
+  background-color: #575757; }
 
 .callout {
   padding: 20px;
@@ -29,22 +29,23 @@ body, html, .jumbotron {
   border-radius: 4px; }
 
 .header {
-  margin-bottom: 55px; }
+  margin-bottom: 50px; }
 
 .banner {
-  background-image: url(../img/test_0.jpg);
+  background-image: url(../img/banner.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: center;
-  height: 300px;
-  padding-top: 200px; }
+  height: 135px;
+  padding-top: 50px; }
   .banner > span {
     color: #ffd9e8;
     text-shadow: 0 0 5px #c131da;
     font-size: 16px; }
 
 .jumbotron {
-  margin-bottom: 0; }
+  padding: 10px 0px;
+  margin-bottom: 10px; }
 
 .panel-default > .panel-purple {
   padding: 10px 15px;
@@ -55,6 +56,9 @@ body, html, .jumbotron {
   background-color: #222; }
 
 .footer {
-  border-top: 4px solid #ee9905; }
+  border-top: 4px solid #7d7d7d; }
+
+.bg-red {
+  background-color: #f44336 !important; }
 
 /*# sourceMappingURL=base.css.map */
