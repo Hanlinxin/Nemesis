@@ -55,8 +55,8 @@ body {
 
 .keywords-green {
   margin: 0 2px;
-  @include keywords(#2e8b5c,#dde5da,#009688);
-  font-size: 1.1em;font-size: 1.1em;
+  @include keywords(#2e8b5c,#dde5da);
+  font-size: 1.1em;
 }
 
 .keywords-pink {
@@ -67,8 +67,9 @@ body {
 
 .keywords-strong {
   margin: 15px 2px;
-  @include keywords(#fff, #f73f52,transparent);
+  @include keywords(#fff, #bd3a47,transparent);
   font-size: 1.1em;
+  padding: 10px 4px;
 }
 
 .header {
@@ -80,8 +81,14 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: center;
-  height: 135px;
-  padding-top: 50px;
+  height: 335px;
+}
+
+@media screen and  (max-width: 768px) {
+  .banner{
+    background-image: url(../img/test_1.png);
+    height: 160px;
+  }
 }
 
 .jumbotron {
@@ -103,7 +110,7 @@ body {
 
   >ul>li.active>a{
     text-decoration: none;
-    background-color: #7f4a88;
+    border-left: 2px solid #b74242;
   }
 }
 
@@ -156,15 +163,15 @@ body {
 }
 
 .tooltip-inner {
-  background-color: #a07373;
+  background-color: #7e2e2e;
 }
 
 .nav>li>a:hover, .nav>li>a:focus {
   text-decoration: none;
-  background-color: #7f4a88;
+  background-color: transparent;
 }
 blockquote {
-  >h4.text-red{
+  >h4{
     color: #ffa700;
   }
   >p{

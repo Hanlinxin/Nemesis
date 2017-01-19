@@ -42,9 +42,8 @@ body {
   font-size: 90%;
   color: #2e8b5c;
   background-color: #dde5da;
-  border: 1px solid #009688;
+  border: 1px solid transparent;
   border-radius: 4px;
-  font-size: 1.1em;
   font-size: 1.1em; }
 
 .keywords-pink {
@@ -62,10 +61,11 @@ body {
   padding: 0 4px;
   font-size: 90%;
   color: #fff;
-  background-color: #f73f52;
+  background-color: #bd3a47;
   border: 1px solid transparent;
   border-radius: 4px;
-  font-size: 1.1em; }
+  font-size: 1.1em;
+  padding: 10px 4px; }
 
 .header {
   padding-top: 50px; }
@@ -75,9 +75,12 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: center;
-  height: 135px;
-  padding-top: 50px; }
+  height: 335px; }
 
+@media screen and (max-width: 768px) {
+  .banner {
+    background-image: url(../img/test_1.png);
+    height: 160px; } }
 .jumbotron {
   padding: 10px 0px;
   margin-bottom: 10px; }
@@ -94,7 +97,7 @@ body {
   top: 55px; }
   #nav > ul > li.active > a {
     text-decoration: none;
-    background-color: #7f4a88; }
+    border-left: 2px solid #b74242; }
 
 .footer {
   margin-top: 20px;
@@ -134,13 +137,13 @@ body {
   color: #fbd157; }
 
 .tooltip-inner {
-  background-color: #a07373; }
+  background-color: #7e2e2e; }
 
 .nav > li > a:hover, .nav > li > a:focus {
   text-decoration: none;
-  background-color: #7f4a88; }
+  background-color: transparent; }
 
-blockquote > h4.text-red {
+blockquote > h4 {
   color: #ffa700; }
 blockquote > p {
   font-size: 0.8em; }
