@@ -6,7 +6,7 @@ $(function () {
         $("#nav").addClass("affix");
     }
     $(window).scroll(function() {
-        if ($(this).scrollTop() >= 160){
+        if ($(this).scrollTop() >= 355){
             $("#nav").addClass("affix");
         }else {
             $("#nav").removeClass("affix");
@@ -27,7 +27,7 @@ $(function () {
         }, 500);
         return false;
     });
-    $('.dropdown-menu a').click(function () {
+    $('.navbar-nav a').click(function () {
         $('html, body').animate({
             scrollTop: $($.attr(this, 'href')).offset().top - 55
         }, 500);
