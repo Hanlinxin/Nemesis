@@ -20,9 +20,17 @@ $('body').scrollspy({
     offset: 70
 });
 
-$('.navbar-example a').click(function () {
-    $('html, body').animate({
-        scrollTop: $($.attr(this, 'href')).offset().top - 55
-    }, 500);
-    return false;
+$(function () {
+    $('.navbar-example a').click(function () {
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top - 55
+        }, 500);
+        return false;
+    });
+    $('.dropdown-menu a').click(function () {
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top - 55
+        }, 500);
+        return false;
+    });
 });

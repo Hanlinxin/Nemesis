@@ -7,15 +7,16 @@ body {
 }
 @font-face {
   font-family: 'iconfont';  /* project id 223365 */
-  src: url('//at.alicdn.com/t/font_qife17nyiz6hto6r.eot');
-  src: url('//at.alicdn.com/t/font_qife17nyiz6hto6r.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_qife17nyiz6hto6r.woff') format('woff'),
-  url('//at.alicdn.com/t/font_qife17nyiz6hto6r.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_qife17nyiz6hto6r.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_0fd5pat0nfsnstt9.eot');
+  src: url('//at.alicdn.com/t/font_0fd5pat0nfsnstt9.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_0fd5pat0nfsnstt9.woff') format('woff'),
+  url('//at.alicdn.com/t/font_0fd5pat0nfsnstt9.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_0fd5pat0nfsnstt9.svg#iconfont') format('svg');
 }
 .iconfont {
   font-family: 'iconfont';
   font-size: inherit;
+  cursor: pointer;
 }
 //c1：文字颜色 c2：背景色 c3 边框颜色
 @mixin keywords($c1:#4c4177,$c2:#FFD9E8,$c3:transparent){
@@ -37,7 +38,14 @@ body {
 }
 
 .callout {
-  @include callout()
+  @include callout();
+  background-color: #f9f4ef;
+  color: #4a266a;
+
+  >h4 {
+     font-weight: 700;
+    color: #4c4177;
+  }
 }
 
 .keywords-purple {
@@ -48,6 +56,7 @@ body {
 .keywords-green {
   margin: 0 2px;
   @include keywords(#2e8b5c,#dde5da,#009688);
+  font-size: 1.1em;font-size: 1.1em;
 }
 
 .keywords-pink {
@@ -111,11 +120,17 @@ body {
   background-color: #222222;
 }
 .main {
-  border: 1px solid #8f92a3;
-  background-color: #323232;
+  background-color: #251d1d;
 }
 .text-red {
   color: #d63243;
+}
+.text-wihte {
+  color: #fbede1;
+}
+.text-list {
+  line-height: 1.8em;
+  color: #fbf3ce;
 }
 
 //color: #ffd9e8;
@@ -127,6 +142,9 @@ body {
   text-shadow: 0 0 5px #fa7601;
   font-size: 16px;
 }
+.text-orange {
+  color: #ea7362;
+}
 .navs-white {
 
   >li>a {
@@ -136,7 +154,20 @@ body {
 .text-yellow {
   color: #fbd157;
 }
+
+.tooltip-inner {
+  background-color: #a07373;
+}
+
 .nav>li>a:hover, .nav>li>a:focus {
   text-decoration: none;
   background-color: #7f4a88;
+}
+blockquote {
+  >h4.text-red{
+    color: #ffa700;
+  }
+  >p{
+    font-size: 0.8em;
+  }
 }
