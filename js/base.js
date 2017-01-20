@@ -21,13 +21,13 @@ $('body').scrollspy({
 });
 
 $(function () {
-    $('.navbar-example a').click(function () {
+    $('.navbar-example a:not(a.dropdown-toggle)').click(function () {
         $('html, body').animate({
             scrollTop: $($.attr(this, 'href')).offset().top - 55
         }, 500);
         return false;
     });
-    $('.navbar-nav a').click(function () {
+    $('.navbar-nav a:not(a.dropdown-toggle)').click(function () {
         $('html, body').animate({
             scrollTop: $($.attr(this, 'href')).offset().top - 55
         }, 500);
