@@ -79,9 +79,8 @@ body {
 .header {
   padding-top: 50px;
 }
-
 .banner {
-  background-image: url(../img/banner.png);
+  background-image: url(http://wx2.sinaimg.cn/large/005JVuCMly1fbx2ke8qwjj30wi09b1cg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: center;
@@ -115,12 +114,6 @@ body {
   ul>li.active>a{
     text-decoration: none;
     border-left: 2px solid #b74242;
-  }
-  ul>li>ul{
-    display: none;
-  }
-  li.active>ul{
-    display: block;
   }
 }
 
