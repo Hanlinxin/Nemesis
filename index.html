@@ -1,781 +1,963 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
 
-	<head>
-		<meta charset="UTF-8">
-		<title>demo</title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,user-scalable=no">
-		<meta name="keyword" content="减防算法，叠加，百分比减防">
-		<meta name="x5-fullscreen" content="true">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/base.css">
-		<link rel="icon" href="favicon.ico">
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,user-scalable=no">
+    <meta name="keyword" content="减防算法，叠加，百分比减防">
+    <meta name="x5-fullscreen" content="true">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="icon" href="favicon.ico">
+</head>
 
-	<body data-spy="scroll" data-target="#nav">
-		<header class="header">
-			<!--Menu Start-->
-			<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+<body data-spy="scroll" data-target="#nav">
+<header class="header">
+    <!--Menu Start-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-						<!--<a class="navbar-brand" href="http://bbs.colg.cn/">-->
-							<!--<img src="" title="">-->
-						<!--</a>-->
-					</div>
-					<div class="collapse navbar-collapse navbar-right" id="main-nav">
-						<ul class="nav navbar-nav">
-							<li class="dropdown">
-								<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">减防算法 <span class="caret"></span></a>
-								<ul class="dropdown-menu" role="menu">
-									<li>
-										<a href="#item">固定类与百分比类装备</a>
-									</li>
-									<li>
-										<a href="#item-PCT">百分比与百分比类装备</a>
-									</li>
-									<li>
-										<a href="#unititem">角色技能与百分比类装备</a>
-									</li>
-									<li>
-										<a href="#unit">角色技能与角色技能</a>
-									</li>
-									<li>
-										<a href="#ignore">无视目标防御</a>
-									</li>
-									<li>
-										<a href="#epilog">结论</a>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<a href="#minimum">减伤率下限</a>
-							</li>
-							<li>
-								<a href="#test">测试条件</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-			<!--Menu End-->
-		</header>
-		<!--Banner Start-->
-		<div class="jumbotron">
-			<div class="container banner">
-			</div>
-		</div>
-		<!--Banner End-->
-		<!--Content Start-->
-		<div class="container">
-			<div id="arithmetic" class="row">
-				<div class="col-md-9 main">
-					<section id="item" class="clearfix">
-						<div class="page-header">
-							<h1>减防算法</h1>
-						</div>
-						<h2 class="text-yellow">固定类与百分比类装备</h2>
-						<br>
-						<p class="keywords-strong">固定值类型与百分比类型的装备同时存在时，先计算固定值部分，后计算百分比部分。</p>
-						<table class="table table-bordered bg-black text-center table-striped">
-							<thead>
-								<th></th>
-								<th>虫桩</th>
-								<th>千蛛衣</th>
-								<th>千蛛衣+魔剑眼 <span class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="假设先计算固定值">&#xe698;</span></th>
-								<th>千蛛衣+魔剑眼 <span class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="假设先计算百分比">&#xe698;</span></th>
-							</thead>
-							<tbody>
-								<tr>
-									<td>防御值</td>
-									<td>169012</td>
-									<td>157012</td>
-									<td>141311</td>
-									<td>140111</td>
-								</tr>
-								<tr>
-									<td>减伤率</td>
-									<td>90.76%</td>
-									<td>90.13%</td>
-									<td>89.15%</td>
-									<td>89.07%</td>
-								</tr>
-								<tr>
-									<td>伤害比率</td>
-									<td>9.24%</td>
-									<td>9.87%</td>
-									<td>10.85%</td>
-									<td>10.93%</td>
-								</tr>
-								<tr>
-									<td>实际伤害-1</td>
-									<td>36218</td>
-									<td>38719</td>
-									<td>-</td>
-									<td>-</td>
-								</tr>
-								<tr>
-									<td>实际伤害-2</td>
-									<td>36218</td>
-									<td>38719</td>
-									<td>42552</td>
-									<td>-</td>
-								</tr>
-								<tr>
-									<td>模拟伤害</td>
-									<td>-</td>
-									<td>38713</td>
-									<td>42554</td>
-									<td>42879</td>
-								</tr>
-							</tbody>
-						</table>
-						<p>虫桩的原始防御为169012，对应减伤率为90.76%，故伤害比率为9.24%</p>
-						<p>将其设置为中毒状态，攻击并触发<span class="keywords-pink">千蛛上衣</span>的减防效果，此时伤害为36218</p>
-						<br>
-						<p>触发<span class="keywords-pink">千蛛上衣</span>的减防效果后，其防御为169012-12000=157012</p>
-						<p>对应减伤率为90.13%，故伤害比率为9.87%，模拟伤害为38713，与实际伤害38719吻合</p>。
-						<br>
-						<p>佩戴<span class="keywords-pink">阿波菲斯之眼</span>经过5s后，减防光环生效，由此测试两类减防装备的算法：</p>
-						<br>
-						<blockquote>
-							<h4>若先计算固定值部分</h4>
-							<p>则计算后防御为（169012-12000）*（1-10%）=141311</p>
-							<p>对应减伤率为89.15%，故伤害比率为10.85%，模拟伤害为42554</p>
-						</blockquote>
-						<br>
-						<blockquote>
-							<h4>若先计算百分比部分</h4>
-							<p>则计算后防御为[169012*（1-10%）]-12000=140111</p>
-							<p>对应减伤率为89.07%，故伤害比率为10.93%，模拟伤害为42879</p>
-						</blockquote>
-						<br>
-						<p>实际伤害为42552，与先计算固定值部分的模拟伤害42554吻合</p>
-						<p>故固定值类型与百分比类型的装备同时存在时，先计算固定值部分，后计算百分比部分</p>
-						<img class="col-md-4 img-responsive" src="img/arithmetic/0.png">
-						<img class="col-md-4 img-responsive" src="img/arithmetic/2.png">
-						<img class="col-md-4 img-responsive" src="img/arithmetic/5.png">
-					</section>
-					<section id="item-PCT" class="clearfix">
-						<h2 class="text-yellow">百分比与百分比类装备</h2>
-						<br>
-						<p class="keywords-strong">百分比类型与百分比类型的装备同时存在时，二者的减防效果为乘算。</p>
-						<table class="table table-bordered bg-black text-center table-striped">
-							<thead>
-								<tr>
-									<th></th>
-									<th>虫桩</th>
-									<th>千蛛衣</th>
-									<th>天劫+魔剑眼 <span class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="假设为加算">&#xe698;</span></th>
-									<th>天劫+魔剑眼 <span class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="假设为乘算">&#xe698;</span></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>防御值</td>
-									<td>169012</td>
-									<td>135210</td>
-									<td>118308</td>
-									<td>121689</td>
-								</tr>
-								<tr>
-									<td>减伤率</td>
-									<td>90.76%</td>
-									<td>88.71%</td>
-									<td>87.31%</td>
-									<td>87.62%</td>
-								</tr>
-								<tr>
-									<td>伤害比率</td>
-									<td>9.24%</td>
-									<td>11.29%</td>
-									<td>12.69%</td>
-									<td>12.38%</td>
-								</tr>
-								<tr>
-									<td>实际伤害-1</td>
-									<td></td>
-									<td>95737</td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>实际伤害-2</td>
-									<td></td>
-									<td></td>
-									<td colspan="2">105058</td>
-								</tr>
-								<tr>
-									<td>模拟伤害</td>
-									<td></td>
-									<td></td>
-									<td>107678</td>
-									<td>105057</td>
-								</tr>
-							</tbody>
-						</table>
-						<p>虫桩的原始防御为169012，天劫套具有半径为300px的20%魔防削减光环</p>
-						<p>故此时其防御为169012*（1-20%）=135210，对应减伤率为88.71%，故伤害比率为11.29%</p>
-						<br>
-						<p>佩戴[阿波菲斯之眼]经过5s后，减防光环生效，由此测试两类减防装备的算法：</p>
+                <!--<a class="navbar-brand" href="http://bbs.colg.cn/">-->
+                <!--<img src="" title="">-->
+                <!--</a>-->
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="main-nav">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">减防算法 <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#item">固定类与百分比类装备</a>
+                            </li>
+                            <li>
+                                <a href="#item-PCT">百分比与百分比类装备</a>
+                            </li>
+                            <li>
+                                <a href="#unititem">角色技能与百分比类装备</a>
+                            </li>
+                            <li>
+                                <a href="#unit">角色技能与角色技能</a>
+                            </li>
+                            <li>
+                                <a href="#ignore">无视目标防御</a>
+                            </li>
+                            <li>
+                                <a href="#epilog">结论</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#minimum">减伤率下限</a>
+                    </li>
+                    <li>
+                        <a href="#test">测试条件</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Menu End-->
+</header>
+<!--Banner Start-->
+<div class="jumbotron">
+    <div class="container banner">
+    </div>
+</div>
+<!--Banner End-->
+<!--Content Start-->
+<div class="container">
+    <div id="arithmetic" class="row">
+        <div class="col-md-9 main">
+            <section id="preface">
+                <h1>COLG首发，未经许可谢绝转载。</h1>
 
-						<blockquote>
-							<h4>若二者为加算算法</h4>
-							<p>则计算后防御为169012*（1-20%-10%）=118308</p>
-							<p>对应减伤率为87.31%，故伤害比率为12.69%，模拟伤害为107678。</p>
-						</blockquote>
-						<br>
-						<blockquote>
-							<h4>若二者为乘算算法</h4>
-							<p>则计算后防御为169012*（1-20%）*（1-10%）=121689</p>
-							<p>对应减伤率为87.62%，故伤害比率为12.38%，模拟伤害为105057。</p>
-						</blockquote>
-						<br>
-						<p>实际伤害为105058，与二者为乘算算法的模拟伤害105057吻合。</p>
-						<p>故百分比类型与百分比类型的装备同时存在时，二者的减防效果为乘算。</p>
-						<img class="col-md-6 img-responsive" src="img/arithmetic/test1.jpg">
-						<img class="col-md-6 img-responsive" src="img/arithmetic/test1.jpg">
-					</section>
-					<section id="unititem" class="clearfix">
-						<h2 class="text-yellow">角色技能与百分比类装备</h2>
-						<p class="keywords-strong">角色技能与百分比类型的装备同时存在时，二者的减防效果为乘算。</p>
-						<img class="img-responsive visible-xs" src="img/arithmetic/table.jpg">
-						<table class="table table-bordered bg-black text-center table-striped hidden-xs">
-							<thead>
-								<tr>
-									<th></th>
-									<th>虫桩</th>
-									<th>天劫</th>
-									<th>天劫+魔剑眼</th>
-									<th>天劫+魔剑眼</th>
-									<th>天劫+魔剑眼+漩涡</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>防御值</td>
-									<td>169012</td>
-									<td>135210</td>
-									<td>118308</td>
-									<td>121689</td>
-									<td>91145</td>
-								</tr>
-								<tr>
-									<td>减伤率</td>
-									<td>90.76%</td>
-									<td>88.71%</td>
-									<td>87.31%</td>
-									<td>87.62%</td>
-									<td>84.12%</td>
-								</tr>
-								<tr>
-									<td>减伤比率</td>
-									<td>9.24%</td>
-									<td>11.29%</td>
-									<td>12.69%</td>
-									<td>12.38%</td>
-									<td>15.88%</td>
-								</tr>
-								<tr>
-									<td>实际伤害-1</td>
-									<td></td>
-									<td>95737</td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>实际伤害-2</td>
-									<td></td>
-									<td></td>
-									<td colspan="2">105058</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>模拟伤害</td>
-									<td></td>
-									<td></td>
-									<td>107678</td>
-									<td>105057</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>实际伤害-1</td>
-									<td></td>
-									<td>95731</td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>实际伤害-2</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td>134673</td>
-								</tr>
-								<tr>
-									<td>实际伤害-3</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td>134655</td>
-								</tr>
-								<tr>
-									<td>模拟伤害</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td>134666</td>
-								</tr>
-							</tbody>
-						</table>
-						<p>基于上一次测试的结果，现已知百分比类型与百分比类型的装备同时存在时，二者的减防效果为乘算。</p>
-						<p>引入角色减防技能<span class="keywords-green">暗影漩涡<b class="iconfont text-danger" data-toggle="tooltip"
+
+                <h2 class="text-yellow">前言</h2>
+                <p>继上次减防算法的介绍帖发布后，于国服开放90级版本的前夜，再次发布减伤率下限的测试帖。</p>
+                <br>
+                <p>既是作为上次算法帖的续篇，也是希望能够对大家在90级版本攻略卢克副本、选择合理的配装以及组建默契的团队提供一点小小的帮助。</p>
+                <p>同时也希望此帖能够解答大家关于“减防”、“减伤率下限”等的诸多问题，希望仔细阅读完此帖的沃特碧们能够有所收获。</p>
+                <br>
+                <p>为了保留帖子的连贯性，同时方便查找，此帖前半部分将减防算法的介绍帖的内容进行了复述。已经浏览过的沃特碧可以直接观看后半部分的内容。</p>
+                <br>
+                <p>感谢
+                    <a href="http://bbs.colg.cn/home.php?mod=space&uid=633520">视线的背面</a>
+                    <a href="http://bbs.colg.cn/home.php?mod=space&uid=1051679">凡雪痕</a>
+                    <a href="http://bbs.colg.cn/home.php?mod=space&uid=499326">duanchao1993</a>
+                    <a href="http://bbs.colg.cn/home.php?mod=space&uid=1327425">再见鬼泣 </a>
+                    对于此帖完成提供的帮助，无论是想法的提出、结论的验证，抑或是直接或间接参与相关测试。</p>
+                <br>
+                <blockquote>
+                    <h4>减防算法</h4>
+                    <p>有效防御值=（原始防御值-固定减防类装备总和）*（1-减防技能1-...-减防技能N）*（1-百分比减防类装备1）*...*（1-百分比减防类装备N）*（1-无视防御装备）</p>
+                </blockquote>
+                <br>
+                <h4 class="text-orange">不同减防间叠加算法</h4>
+                <ol class="text-list">
+                    <li>固定值类型与百分比类型的装备同时存在时，先计算固定值部分，后计算百分比部分</li>
+                    <li>百分比类型与百分比类型的装备同时存在时，二者的减防效果为乘算</li>
+                    <li>角色技能与百分比类型的装备同时存在时，二者的减防效果为乘算。</li>
+                    <li>不同的角色技能同时存在时，二者的减防效果为加算。</li>
+                    <li>
+                        无视目标防御类型的装备与百分比类型的减防装备的大体算法相同（见上），同时也存在一些不同之处：
+                        <ol>
+                            <li>不会因为怪物类型（精英、稀有、领主）而收到惩罚减益</li>
+                            <li>同类型装备效果无法叠加，取最高值</li>
+                            <li>仅佩戴该类型装备的角色可以享受。</li>
+                        </ol>
+                    </li>
+                </ol>
+                <br>
+                <h4 class="text-orange">减伤率下限</h4>
+                <ol class="text-list">
+                    <li>[普通安徒恩]副本的减伤率下限约为77.57%，对应的怪物防御值约为59470（86级角色）/62236（90级角色）。</li>
+                    <li>[暴走安徒恩]副本的减伤率下限约为81.12%，对应的怪物防御值约为73900（86级角色）/77340（90级角色）。</li>
+                    <li>[普通卢克]副本的减伤率下限约为89.04%，对应的怪物防御值约为146250（90级角色）；且由于[普通卢克]副本内怪物的防御均为189914，
+                        故攻击方等级不变时，减伤率下限对应的防御减少率约为23.00%；防御值不变时，对应的攻击方等级上限约为Lv 117。
+                    </li>
+                    <li>固定减防类、百分比减防类、无视防御类装备均无法突破副本的减伤率下限。</li>
+                </ol>
+
+            </section>
+            <div id="debuff" class="page-header">
+                <h1>减防算法</h1>
+            </div>
+            <section id="item" class="clearfix">
+                <h2 class="text-yellow">固定类与百分比类装备</h2>
+                <br>
+                <p class="keywords-strong">固定值类型与百分比类型的装备同时存在时，先计算固定值部分，后计算百分比部分。</p>
+                <table class="table table-bordered bg-black text-center table-striped">
+                    <thead>
+                    <th></th>
+                    <th>虫桩</th>
+                    <th>千蛛衣</th>
+                    <th>千蛛衣+魔剑眼 <span class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
+                                      title="假设先计算固定值">&#xe698;</span></th>
+                    <th>千蛛衣+魔剑眼 <span class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
+                                      title="假设先计算百分比">&#xe698;</span></th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>防御值</td>
+                        <td>169012</td>
+                        <td>157012</td>
+                        <td>141311</td>
+                        <td>140111</td>
+                    </tr>
+                    <tr>
+                        <td>减伤率</td>
+                        <td>90.76%</td>
+                        <td>90.13%</td>
+                        <td>89.15%</td>
+                        <td>89.07%</td>
+                    </tr>
+                    <tr>
+                        <td>伤害比率</td>
+                        <td>9.24%</td>
+                        <td>9.87%</td>
+                        <td>10.85%</td>
+                        <td>10.93%</td>
+                    </tr>
+                    <tr>
+                        <td>实际伤害-1</td>
+                        <td>36218</td>
+                        <td>38719</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>实际伤害-2</td>
+                        <td>36218</td>
+                        <td>38719</td>
+                        <td>42552</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>模拟伤害</td>
+                        <td>-</td>
+                        <td>38713</td>
+                        <td>42554</td>
+                        <td>42879</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p>虫桩的原始防御为169012，对应减伤率为90.76%，故伤害比率为9.24%</p>
+                <p>将其设置为中毒状态，攻击并触发<span class="keywords-pink">千蛛上衣</span>的减防效果，此时伤害为36218</p>
+                <br>
+                <p>触发<span class="keywords-pink">千蛛上衣</span>的减防效果后，其防御为169012-12000=157012</p>
+                <p>对应减伤率为90.13%，故伤害比率为9.87%，模拟伤害为38713，与实际伤害38719吻合</p>。
+                <br>
+                <p>佩戴<span class="keywords-pink">阿波菲斯之眼</span>经过5s后，减防光环生效，由此测试两类减防装备的算法：</p>
+                <br>
+                <blockquote>
+                    <h4>若先计算固定值部分</h4>
+                    <p>则计算后防御为（169012-12000）*（1-10%）=141311</p>
+                    <p>对应减伤率为89.15%，故伤害比率为10.85%，模拟伤害为42554</p>
+                </blockquote>
+                <br>
+                <blockquote>
+                    <h4>若先计算百分比部分</h4>
+                    <p>则计算后防御为[169012*（1-10%）]-12000=140111</p>
+                    <p>对应减伤率为89.07%，故伤害比率为10.93%，模拟伤害为42879</p>
+                </blockquote>
+                <br>
+                <p>实际伤害为42552，与先计算固定值部分的模拟伤害42554吻合</p>
+                <p>故固定值类型与百分比类型的装备同时存在时，先计算固定值部分，后计算百分比部分</p>
+                <img class="col-md-4 img-responsive" src="img/arithmetic/0.png">
+                <img class="col-md-4 img-responsive" src="img/arithmetic/2.png">
+                <img class="col-md-4 img-responsive" src="img/arithmetic/5.png">
+            </section>
+            <section id="item-PCT" class="clearfix">
+                <h2 class="text-yellow">百分比与百分比类装备</h2>
+                <br>
+                <p class="keywords-strong">百分比类型与百分比类型的装备同时存在时，二者的减防效果为乘算。</p>
+                <table class="table table-bordered bg-black text-center table-striped">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>虫桩</th>
+                        <th>千蛛衣</th>
+                        <th>天劫+魔剑眼 <span class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
+                                         title="假设为加算">&#xe698;</span></th>
+                        <th>天劫+魔剑眼 <span class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
+                                         title="假设为乘算">&#xe698;</span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>防御值</td>
+                        <td>169012</td>
+                        <td>135210</td>
+                        <td>118308</td>
+                        <td>121689</td>
+                    </tr>
+                    <tr>
+                        <td>减伤率</td>
+                        <td>90.76%</td>
+                        <td>88.71%</td>
+                        <td>87.31%</td>
+                        <td>87.62%</td>
+                    </tr>
+                    <tr>
+                        <td>伤害比率</td>
+                        <td>9.24%</td>
+                        <td>11.29%</td>
+                        <td>12.69%</td>
+                        <td>12.38%</td>
+                    </tr>
+                    <tr>
+                        <td>实际伤害-1</td>
+                        <td></td>
+                        <td>95737</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>实际伤害-2</td>
+                        <td></td>
+                        <td></td>
+                        <td colspan="2">105058</td>
+                    </tr>
+                    <tr>
+                        <td>模拟伤害</td>
+                        <td></td>
+                        <td></td>
+                        <td>107678</td>
+                        <td>105057</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p>虫桩的原始防御为169012，天劫套具有半径为300px的20%魔防削减光环</p>
+                <p>故此时其防御为169012*（1-20%）=135210，对应减伤率为88.71%，故伤害比率为11.29%</p>
+                <br>
+                <p>佩戴[阿波菲斯之眼]经过5s后，减防光环生效，由此测试两类减防装备的算法：</p>
+
+                <blockquote>
+                    <h4>若二者为加算算法</h4>
+                    <p>则计算后防御为169012*（1-20%-10%）=118308</p>
+                    <p>对应减伤率为87.31%，故伤害比率为12.69%，模拟伤害为107678。</p>
+                </blockquote>
+                <br>
+                <blockquote>
+                    <h4>若二者为乘算算法</h4>
+                    <p>则计算后防御为169012*（1-20%）*（1-10%）=121689</p>
+                    <p>对应减伤率为87.62%，故伤害比率为12.38%，模拟伤害为105057。</p>
+                </blockquote>
+                <br>
+                <p>实际伤害为105058，与二者为乘算算法的模拟伤害105057吻合。</p>
+                <p>故百分比类型与百分比类型的装备同时存在时，二者的减防效果为乘算。</p>
+                <img class="col-md-6 img-responsive" src="img/arithmetic/test1.jpg">
+                <img class="col-md-6 img-responsive" src="img/arithmetic/test1.jpg">
+            </section>
+            <section id="unititem" class="clearfix">
+                <h2 class="text-yellow">角色技能与百分比类装备</h2>
+                <p class="keywords-strong">角色技能与百分比类型的装备同时存在时，二者的减防效果为乘算。</p>
+                <img class="img-responsive visible-xs" src="img/arithmetic/table.jpg">
+                <table class="table table-bordered bg-black text-center table-striped hidden-xs">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>虫桩</th>
+                        <th>天劫</th>
+                        <th>天劫+魔剑眼</th>
+                        <th>天劫+魔剑眼</th>
+                        <th>天劫+魔剑眼+漩涡</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>防御值</td>
+                        <td>169012</td>
+                        <td>135210</td>
+                        <td>118308</td>
+                        <td>121689</td>
+                        <td>91145</td>
+                    </tr>
+                    <tr>
+                        <td>减伤率</td>
+                        <td>90.76%</td>
+                        <td>88.71%</td>
+                        <td>87.31%</td>
+                        <td>87.62%</td>
+                        <td>84.12%</td>
+                    </tr>
+                    <tr>
+                        <td>减伤比率</td>
+                        <td>9.24%</td>
+                        <td>11.29%</td>
+                        <td>12.69%</td>
+                        <td>12.38%</td>
+                        <td>15.88%</td>
+                    </tr>
+                    <tr>
+                        <td>实际伤害-1</td>
+                        <td></td>
+                        <td>95737</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>实际伤害-2</td>
+                        <td></td>
+                        <td></td>
+                        <td colspan="2">105058</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>模拟伤害</td>
+                        <td></td>
+                        <td></td>
+                        <td>107678</td>
+                        <td>105057</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>实际伤害-1</td>
+                        <td></td>
+                        <td>95731</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>实际伤害-2</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>134673</td>
+                    </tr>
+                    <tr>
+                        <td>实际伤害-3</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>134655</td>
+                    </tr>
+                    <tr>
+                        <td>模拟伤害</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>134666</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p>基于上一次测试的结果，现已知百分比类型与百分比类型的装备同时存在时，二者的减防效果为乘算。</p>
+                <p>引入角色减防技能<span class="keywords-green">暗影漩涡<b class="iconfont text-danger" data-toggle="tooltip"
                                                                data-placement="top"
                                                                title="Lv41：减防比率为25.1%">&#xe698;</b></span>，由此测试两类减防方式的算法：
-						</p>
-						<br>
-						<blockquote>
-							<h4>若二者为加算算法（表格中未体现）</h4>
-							<p>则计算后防御为169012*{1-[1-（1-20%）*（1-10%）]-25.1%}=79267，</p>
-							<p>对应减伤率为82.17%，故伤害比率为17.83%，模拟伤害为151185。</p>
-						</blockquote>
-						<br>
-						<blockquote>
-							<h4>若二者为乘算算法</h4>
-							<p>则计算后防御为169012*（1-20%）*（1-10%）*（1-25.1%）=91145，</p>
-							<p>对应减伤率为84.12%，故伤害比率为15.88%，模拟伤害为134666。</p>
-						</blockquote>
-						<br>
-						<p>实际伤害为134673/134655，其平均值为134664，与二者为乘算算法的模拟伤害134666吻合。</p>
-						<p>故角色技能与百分比类型的装备同时存在时，二者的减防效果为乘算。</p>
-						<img class="col-md-4 img-responsive" src="img/arithmetic/test3.jpg">
-						<img class="col-md-4 img-responsive" src="img/arithmetic/test4.jpg">
-						<img class="col-md-4 img-responsive" src="img/arithmetic/test5.jpg">
-					</section>
-					<section id="unit" class="clearfix">
-						<h2 class="text-yellow">角色技能与角色技能</h2>
-						<p class="keywords-strong">不同的角色技能同时存在时，二者的减防效果为加算。</p>
-						<table class="table table-bordered bg-black text-center table-striped">
-							<thead>
-								<tr>
-									<th></th>
-									<th>虫桩</th>
-									<th>天劫<span class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="已知为乘算">&#xe698;</span> +绿阵
-									</th>
-									<th>天劫<span class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="已知为乘算">&#xe698;
-                            </span>+绿阵+漩涡<span class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="假设为加算">&#xe698;</span></th>
-									<th>天劫<span class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="已知为乘算">&#xe698;
-                            </span>+绿阵+漩涡<span class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="假设为乘算">&#xe698;</span></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>防御值</td>
-									<td>169012</td>
-									<td>93295</td>
-									<td>59357</td>
-									<td>69878</td>
-								</tr>
-								<tr>
-									<td>减伤率</td>
-									<td>90.76%</td>
-									<td>84.43%</td>
-									<td>77.53%</td>
-									<td>80.25%</td>
-								</tr>
-								<tr>
-									<td>减伤比率</td>
-									<td>9.24%</td>
-									<td>15.57%</td>
-									<td>22.47%</td>
-									<td>19.75%</td>
-								</tr>
-								<tr>
-									<td>实际伤害-1</td>
-									<td></td>
-									<td>117387</td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>实际伤害-2</td>
-									<td></td>
-									<td></td>
-									<td colspan="2">169402</td>
-								</tr>
-								<tr>
-									<td>模拟伤害</td>
-									<td></td>
-									<td></td>
-									<td>169424</td>
-									<td>148955</td>
-								</tr>
-							</tbody>
-						</table>
-						<p>基于上一次测试的结果，现已知角色技能与百分比类型的装备同时存在时，二者的减防效果为乘算</p>
-						<p>现已有
-							<span class="keywords-pink">天劫套装
-                				<b class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="魔防削减光环，减防比率为20%">&#xe6a8;</b>
+                </p>
+                <br>
+                <blockquote>
+                    <h4>若二者为加算算法（表格中未体现）</h4>
+                    <p>则计算后防御为169012*{1-[1-（1-20%）*（1-10%）]-25.1%}=79267，</p>
+                    <p>对应减伤率为82.17%，故伤害比率为17.83%，模拟伤害为151185。</p>
+                </blockquote>
+                <br>
+                <blockquote>
+                    <h4>若二者为乘算算法</h4>
+                    <p>则计算后防御为169012*（1-20%）*（1-10%）*（1-25.1%）=91145，</p>
+                    <p>对应减伤率为84.12%，故伤害比率为15.88%，模拟伤害为134666。</p>
+                </blockquote>
+                <br>
+                <p>实际伤害为134673/134655，其平均值为134664，与二者为乘算算法的模拟伤害134666吻合。</p>
+                <p>故角色技能与百分比类型的装备同时存在时，二者的减防效果为乘算。</p>
+                <img class="col-md-4 img-responsive" src="img/arithmetic/test3.jpg">
+                <img class="col-md-4 img-responsive" src="img/arithmetic/test4.jpg">
+                <img class="col-md-4 img-responsive" src="img/arithmetic/test5.jpg">
+            </section>
+            <section id="unit" class="clearfix">
+                <h2 class="text-yellow">角色技能与角色技能</h2>
+                <p class="keywords-strong">不同的角色技能同时存在时，二者的减防效果为加算。</p>
+                <table class="table table-bordered bg-black text-center table-striped">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>虫桩</th>
+                        <th>天劫<span class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
+                                    title="已知为乘算">&#xe698;</span> +绿阵
+                        </th>
+                        <th>天劫<span class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
+                                    title="已知为乘算">&#xe698;
+                            </span>+绿阵+漩涡<span class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
+                                               title="假设为加算">&#xe698;</span></th>
+                        <th>天劫<span class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
+                                    title="已知为乘算">&#xe698;
+                            </span>+绿阵+漩涡<span class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
+                                               title="假设为乘算">&#xe698;</span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>防御值</td>
+                        <td>169012</td>
+                        <td>93295</td>
+                        <td>59357</td>
+                        <td>69878</td>
+                    </tr>
+                    <tr>
+                        <td>减伤率</td>
+                        <td>90.76%</td>
+                        <td>84.43%</td>
+                        <td>77.53%</td>
+                        <td>80.25%</td>
+                    </tr>
+                    <tr>
+                        <td>减伤比率</td>
+                        <td>9.24%</td>
+                        <td>15.57%</td>
+                        <td>22.47%</td>
+                        <td>19.75%</td>
+                    </tr>
+                    <tr>
+                        <td>实际伤害-1</td>
+                        <td></td>
+                        <td>117387</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>实际伤害-2</td>
+                        <td></td>
+                        <td></td>
+                        <td colspan="2">169402</td>
+                    </tr>
+                    <tr>
+                        <td>模拟伤害</td>
+                        <td></td>
+                        <td></td>
+                        <td>169424</td>
+                        <td>148955</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p>基于上一次测试的结果，现已知角色技能与百分比类型的装备同时存在时，二者的减防效果为乘算</p>
+                <p>现已有
+                    <span class="keywords-pink">天劫套装
+                				<b class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
+                                   title="魔防削减光环，减防比率为20%">&#xe6a8;</b>
                 			</span>与角色减防技能
-							<span class="keywords-green">侵蚀之普戾蒙
-                				<b class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="Lv29：减防比率为31%">&#xe698;</b>
+                    <span class="keywords-green">侵蚀之普戾蒙
+                				<b class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
+                                   title="Lv29：减防比率为31%">&#xe698;</b>
                             </span>
-						</p>
-						<p>故此时其防御为169012*（1-20%）*（1-31%）=93295，对应减伤率为84.43%，故伤害比率为15.57%，此时伤害为117387</p>
-						<br>
-						<p>引入另一个角色减防技能
-							<span class="keywords-green">暗影漩涡
-								<b class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="Lv41：减防比率为25.1%">&#xe698;</b>
+                </p>
+                <p>故此时其防御为169012*（1-20%）*（1-31%）=93295，对应减伤率为84.43%，故伤害比率为15.57%，此时伤害为117387</p>
+                <br>
+                <p>引入另一个角色减防技能
+                    <span class="keywords-green">暗影漩涡
+								<b class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
+                                   title="Lv41：减防比率为25.1%">&#xe698;</b>
 							</span>，由此测试两个减防技能的算法：
-						</p>
-						<br>
-						<blockquote>
-							<h4>若二者为加算算法</h4>
-							<p>则计算后防御为169012*（1-20%）*（1-31%-25.1%）=59357</p>
-							<p>对应减伤率为77.53%，故伤害比率为22.47%，模拟伤害为169424</p>
-						</blockquote>
-						<br>
-						<blockquote>
-							<h4>若二者为乘算算法</h4>
-							<p>则计算后防御为169012*（1-20%）*（1-31%）*（1-25.1%）=69878</p>
-							<p>对应减伤率为80.25%，故伤害比率为19.75%，模拟伤害为148955</p>
-						</blockquote>
-						<br>
-						<p>实际伤害为169402，与二者为加算算法的模拟伤害169424吻合</p>
-						<p>故不同的角色技能同时存在时，二者的减防效果为加算</p>
-						<img class="col-md-6 img-responsive" src="img/arithmetic/test6.jpg">
-						<img class="col-md-6 img-responsive" src="img/arithmetic/test7.jpg">
-					</section>
-					<section id="ignore" class="clearfix">
-						<h2 class="text-yellow">无视目标防御</h2>
-						<p class="keywords-strong">“无视目标防御”为90版本新增史诗装备中出现的属性，即无视攻击目标一定比率的防御</p>
-						<p>典型装备为90级史诗太刀-
-							<span class="keywords-pink">妖刀-村正
+                </p>
+                <br>
+                <blockquote>
+                    <h4>若二者为加算算法</h4>
+                    <p>则计算后防御为169012*（1-20%）*（1-31%-25.1%）=59357</p>
+                    <p>对应减伤率为77.53%，故伤害比率为22.47%，模拟伤害为169424</p>
+                </blockquote>
+                <br>
+                <blockquote>
+                    <h4>若二者为乘算算法</h4>
+                    <p>则计算后防御为169012*（1-20%）*（1-31%）*（1-25.1%）=69878</p>
+                    <p>对应减伤率为80.25%，故伤害比率为19.75%，模拟伤害为148955</p>
+                </blockquote>
+                <br>
+                <p>实际伤害为169402，与二者为加算算法的模拟伤害169424吻合</p>
+                <p>故不同的角色技能同时存在时，二者的减防效果为加算</p>
+                <img class="col-md-6 img-responsive" src="img/arithmetic/test6.jpg">
+                <img class="col-md-6 img-responsive" src="img/arithmetic/test7.jpg">
+            </section>
+            <section id="ignore" class="clearfix">
+                <h2 class="text-yellow">无视目标防御</h2>
+                <p class="keywords-strong">“无视目标防御”为90版本新增史诗装备中出现的属性，即无视攻击目标一定比率的防御</p>
+                <p>典型装备为90级史诗太刀-
+                    <span class="keywords-pink">妖刀-村正
                 		<b class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="无视目标20%的防御">&#xe6a8;</b>
                 	</span>、 90级史诗扫把-
-							<span class="keywords-pink">缚狼锁-Gleipnir
+                    <span class="keywords-pink">缚狼锁-Gleipnir
                 		<b class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="无视目标25%的防御">&#xe6a8;</b>
                 	</span>、 90级史诗板甲上衣-
-							<span class="keywords-pink">傲慢的自满之眼
-                		<b class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="700px内存在敌人时，无视目标15%的防御">&#xe6a8;</b>
+                    <span class="keywords-pink">傲慢的自满之眼
+                		<b class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
+                           title="700px内存在敌人时，无视目标15%的防御">&#xe6a8;</b>
                 	</span></p>
-						<hr>
-						<h4 class="text-orange">其大体算法与百分比类型的减防装备相同：</h4>
-						<ol class="text-list">
-							<li>在固定值类型的减防装备之后计算</li>
-							<li>与百分比类型的减防装备乘算</li>
-							<li>与角色的减防技能乘算</li>
-							<li>计算结果不会超过副本的减伤率下限</li>
-						</ol>
-						<h4 class="text-orange">同时也存在一些不同之处：</h4>
-						<ol class="text-list">
-							<li>不会因为怪物类型（精英、稀有、领主）而收到惩罚减益</li>
-							<li> 同类型装备效果无法叠加，取最高值</li>
-							<li>仅佩戴该类型装备的角色可以享受</li>
-						</ol>
-						<img class="img-responsive" src="img/arithmetic/table2.jpg">
-						<br>
-						<p>换算后的减伤率与前文不同是因为角色等级不同所致</p>
-						<br>
-						<p>测试角色为佩戴
-							<span class="keywords-pink">
+                <hr>
+                <h4 class="text-orange">其大体算法与百分比类型的减防装备相同：</h4>
+                <ol class="text-list">
+                    <li>在固定值类型的减防装备之后计算</li>
+                    <li>与百分比类型的减防装备乘算</li>
+                    <li>与角色的减防技能乘算</li>
+                    <li>计算结果不会超过副本的减伤率下限</li>
+                </ol>
+                <h4 class="text-orange">同时也存在一些不同之处：</h4>
+                <ol class="text-list">
+                    <li>不会因为怪物类型（精英、稀有、领主）而收到惩罚减益</li>
+                    <li> 同类型装备效果无法叠加，取最高值</li>
+                    <li>仅佩戴该类型装备的角色可以享受</li>
+                </ol>
+                <img class="img-responsive" src="img/arithmetic/table2.jpg">
+                <br>
+                <p>换算后的减伤率与前文不同是因为角色等级不同所致</p>
+                <br>
+                <p>测试角色为佩戴
+                    <span class="keywords-pink">
                         妖刀-村正
                         <b class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="无视目标20%的防御">&#xe6a8;</b>
                     </span> 的90级暗帝
-						</p>
-						<br>
-						<p>虫桩的原始防御为169012，由于角色佩戴
-							<span class="keywords-pink">
+                </p>
+                <br>
+                <p>虫桩的原始防御为169012，由于角色佩戴
+                    <span class="keywords-pink">
                         妖刀-村正
                         <b class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="无视目标20%的防御">&#xe6a8;</b>
                     </span>，故有效防御为169012*（1-20%）=135210。 对应减伤率为88.25%，故伤害比率为11.75%，此时伤害为255055
-						</p>
+                </p>
 
-						<p>引入角色减防技能
-							<span class="keywords-green">
+                <p>引入角色减防技能
+                    <span class="keywords-green">
                         暗影漩涡
                         <b class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
                            title="Lv40：减防比率为24.4%">&#xe698;</b>
                     </span> ，由此测试两类减防方式的算法：
-						</p>
-						<br>
+                </p>
+                <br>
 
-						<blockquote>
-							<h4>若二者为加算算法</h4>
-							<p>则计算后防御为<i>169012*（1-20%-24.4%）=93971</i></p>
-							<p>对应减伤率为83.92%，故伤害比率为16.08%，模拟伤害为339598</p>
-							<br>
-						</blockquote>
+                <blockquote>
+                    <h4>若二者为加算算法</h4>
+                    <p>则计算后防御为<i>169012*（1-20%-24.4%）=93971</i></p>
+                    <p>对应减伤率为83.92%，故伤害比率为16.08%，模拟伤害为339598</p>
+                    <br>
+                </blockquote>
 
-						<blockquote>
-							<h4>若二者为乘算算法</h4>
-							<p>则计算后防御为<i>169012*（1-20%）*（1-24.4%）=102218</i></p>
-							<p>对应减伤率为85.03%，故伤害比率为14.97%，模拟伤害为318049</p>
-							<br>
-							<p>实际伤害为316690，与二者为乘算算法的模拟伤害318049更为接近</p>
-							<p>由于测试角色的武器已强化，故对计算结果进行了无视部分的校正</p>
-							<p>虽然仍存在一定误差，但不影响结论的得出</p>
-							<br>
-						</blockquote>
+                <blockquote>
+                    <h4>若二者为乘算算法</h4>
+                    <p>则计算后防御为<i>169012*（1-20%）*（1-24.4%）=102218</i></p>
+                    <p>对应减伤率为85.03%，故伤害比率为14.97%，模拟伤害为318049</p>
+                    <br>
+                    <p>实际伤害为316690，与二者为乘算算法的模拟伤害318049更为接近</p>
+                    <p>由于测试角色的武器已强化，故对计算结果进行了无视部分的校正</p>
+                    <p>虽然仍存在一定误差，但不影响结论的得出</p>
+                    <br>
+                </blockquote>
 
-						<h4 class="text-orange">故无视目标防御类型的装备与百分比类型的减防装备的大体算法相同</h4>
-						<ol class="text-list">
-							<li>在固定值类型的减防装备之后计算</li>
-							<li>与百分比类型的减防装备乘算</li>
-							<li>与角色的减防技能乘算</li>
-							<li>计算结果不会超过副本的减伤率下限</li>
-						</ol>
+                <h4 class="text-orange">故无视目标防御类型的装备与百分比类型的减防装备的大体算法相同</h4>
+                <ol class="text-list">
+                    <li>在固定值类型的减防装备之后计算</li>
+                    <li>与百分比类型的减防装备乘算</li>
+                    <li>与角色的减防技能乘算</li>
+                    <li>计算结果不会超过副本的减伤率下限</li>
+                </ol>
 
-						<h4 class="text-orange">同时也存在一些不同之处</h4>
-						<ol class="text-list">
-							<li>不会因为怪物类型（精英、稀有、领主）而收到惩罚减益</li>
-							<li>同类型装备效果无法叠加，取最高值</li>
-							<li>仅佩戴该类型装备的角色可以享受</li>
-						</ol>
-						<img class="col-md-6 img-responsive" src="img/arithmetic/test8.jpg">
-						<img class="col-md-6 img-responsive" src="img/arithmetic/test9.jpg">
-					</section>
-					<section id="epilog" class="clearfix">
-						<h2 class="text-yellow">结论</h2>
-						<p class="keywords-strong">
-							有效防御值=（原始防御值-固定减防类装备总和）*（1-减防技能1-...-减防技能N）*（1-百分比减防类装备1）*...*（1-百分比减防类装备N）*（1-无视防御装备）</p>
+                <h4 class="text-orange">同时也存在一些不同之处</h4>
+                <ol class="text-list">
+                    <li>不会因为怪物类型（精英、稀有、领主）而收到惩罚减益</li>
+                    <li>同类型装备效果无法叠加，取最高值</li>
+                    <li>仅佩戴该类型装备的角色可以享受</li>
+                </ol>
+                <img class="col-md-6 img-responsive" src="img/arithmetic/test8.jpg">
+                <img class="col-md-6 img-responsive" src="img/arithmetic/test9.jpg">
+            </section>
+            <section id="epilog" class="clearfix">
+                <h2 class="text-yellow">结论</h2>
+                <p class="keywords-strong">
+                    有效防御值=（原始防御值-固定减防类装备总和）*（1-减防技能1-...-减防技能N）*（1-百分比减防类装备1）*...*（1-百分比减防类装备N）*（1-无视防御装备）</p>
 
-						<ol class="text-list">
-							<li>固定值类型与百分比类型的装备同时存在时，先计算固定值部分，后计算百分比部分</li>
-							<li>百分比类型与百分比类型的装备同时存在时，二者的减防效果为乘算</li>
-							<li>角色技能与百分比类型的装备同时存在时，二者的减防效果为乘算</li>
-							<li>不同的角色技能同时存在时，二者的减防效果为加算</li>
-							<li> 无视目标防御类型的装备与百分比类型的减防装备的大体算法相同（见上），同时也存在一些不同之处</li>
-							<ol class="text-wihte">
-								<li>不会因为怪物类型（精英、稀有、领主）而收到惩罚减益</li>
-								<li>同类型装备效果无法叠加，取最高值</li>
-								<li>仅佩戴该类型装备的角色可以享受</li>
-							</ol>
-						</ol>
-					</section>
-					<section id="minimum">
-						<div class="page-header">
-							<h1>减伤率下限</h1>
-						</div>
-						<p> “减伤率下限”是针对DNF中部分副本设置的特殊系统，旨在防止因减防类技能、道具以及召唤兽等级等的过度堆叠而导致副本难度急剧下滑</p>
-						<br>
-						<p>目前已知具有“减伤率下限”系统的副本包括普通安徒恩副本、团队安徒恩副本、暴走安徒恩副本和普通卢克副本（团队卢克副本国服暂时未开放）</p>
-						<p>由于“减伤率下限”系统的存在，以上副本的怪物在减伤率达到一定限度后不会再下降</p>
-						<p>不同类副本的减伤率下限也存在差异</p>
-						<br>
-						<blockquote>
-							<h4>减伤率的计算公式：</h4>
-							<p>减伤率=怪物防御值/（怪物防御值+攻击方等级*200</p>
-						</blockquote>
-						<dl>
-							<dt>
+                <ol class="text-list">
+                    <li>固定值类型与百分比类型的装备同时存在时，先计算固定值部分，后计算百分比部分</li>
+                    <li>百分比类型与百分比类型的装备同时存在时，二者的减防效果为乘算</li>
+                    <li>角色技能与百分比类型的装备同时存在时，二者的减防效果为乘算</li>
+                    <li>不同的角色技能同时存在时，二者的减防效果为加算</li>
+                    <li> 无视目标防御类型的装备与百分比类型的减防装备的大体算法相同（见上），同时也存在一些不同之处</li>
+                    <ol class="text-wihte">
+                        <li>不会因为怪物类型（精英、稀有、领主）而收到惩罚减益</li>
+                        <li>同类型装备效果无法叠加，取最高值</li>
+                        <li>仅佩戴该类型装备的角色可以享受</li>
+                    </ol>
+                </ol>
+            </section>
+            <section id="minimum">
+                <div class="page-header">
+                    <h1>减伤率下限</h1>
+                </div>
+                <p> “减伤率下限”是针对DNF中部分副本设置的特殊系统，旨在防止因减防类技能、道具以及召唤兽等级等的过度堆叠而导致副本难度急剧下滑</p>
+                <br>
+                <p>目前已知具有“减伤率下限”系统的副本包括普通安徒恩副本、团队安徒恩副本、暴走安徒恩副本和普通卢克副本（团队卢克副本国服暂时未开放）</p>
+                <p>由于“减伤率下限”系统的存在，以上副本的怪物在减伤率达到一定限度后不会再下降</p>
+                <p>不同类副本的减伤率下限也存在差异</p>
+                <br>
+                <blockquote>
+                    <h4>减伤率的计算公式：</h4>
+                    <p>减伤率=怪物防御值/（怪物防御值+攻击方等级*200</p>
+                </blockquote>
+                <dl>
+                    <dt>
                     <h4 class="text-orange">因此能够影响减伤率的因素有两个</h4></dt>
-							<dd>
-								<h5>1、怪物防御值</h5>
-								<p>怪物防御值自身也具有固定的计算公式：怪物防御值=怪物等级*（怪物等级+1）*怪物防御系数*版本防御系数*副本难度系数，在此不过多展开。 在怪物防御值一定的前提下，还会受到减防类技能和道具的影响，其中减防类道具又可分为固定值型、百分比率型和无视防御型。 各类减防技能和道具的特点和算法在前文已有介绍。
-								</p>
-							</dd>
-							<dd>
-								<h5>2、攻击方等级</h5>
-								<p>攻击方（角色或召唤兽）的等级也会直接影响减伤率。 召唤类职业（召唤师、机械师、死灵术士、次元行者等）所常说的“等级压制”效果实际上就是通过提高召唤兽自身的等级来减少减伤率。 使用“等级压制”这个词来描述这个特点其实是有待商酌的，因为在怪物防御值一定的情况下，影响减伤率的并不是双方的等级差，而是单纯的攻击方等级。
-								</p>
-							</dd>
-						</dl>
-						<br>
-						<p>若攻击方等级固定，则可以根据减伤率下限推算出该副本中怪物的防御值下限，从而对团队职业组成和个人装备构建进行指导。</p>
-						<br>
-						<p>如何证明设置下限的是减伤率而不是防御值？可以参照@凡雪痕 对于[暴走安徒恩]的减伤率下限的
-							<a href="http://bbs.colg.cn/thread-5629643-1-1.html">测试帖</a>
-						</p>
-						<p>其测试（采用90级角色）和此帖的测试（采用86级角色）得出的减伤率下限基本一致，故可以证明设置下限的是减伤率而不是防御值</p>
-					</section>
-					<section id="test">
-						<div class="page-header">
-							<h1>测试条件</h1>
-						</div>
-						<p>选取86级暗殿骑士角色（卢克部分为90级暗殿骑士角色）和90级鬼泣角色进行测试，前者提供减防类技能、道具和伤害来源，后者提供减防类技能</p>
-						<br>
-						<dl>
-							<dt>
+                    <dd>
+                        <h5>1、怪物防御值</h5>
+                        <p>怪物防御值自身也具有固定的计算公式：怪物防御值=怪物等级*（怪物等级+1）*怪物防御系数*版本防御系数*副本难度系数，在此不过多展开。
+                            在怪物防御值一定的前提下，还会受到减防类技能和道具的影响，其中减防类道具又可分为固定值型、百分比率型和无视防御型。 各类减防技能和道具的特点和算法在前文已有介绍。
+                        </p>
+                    </dd>
+                    <dd>
+                        <h5>2、攻击方等级</h5>
+                        <p>攻击方（角色或召唤兽）的等级也会直接影响减伤率。 召唤类职业（召唤师、机械师、死灵术士、次元行者等）所常说的“等级压制”效果实际上就是通过提高召唤兽自身的等级来减少减伤率。
+                            使用“等级压制”这个词来描述这个特点其实是有待商酌的，因为在怪物防御值一定的情况下，影响减伤率的并不是双方的等级差，而是单纯的攻击方等级。
+                        </p>
+                    </dd>
+                </dl>
+                <br>
+                <p>若攻击方等级固定，则可以根据减伤率下限推算出该副本中怪物的防御值下限，从而对团队职业组成和个人装备构建进行指导。</p>
+                <br>
+                <p>如何证明设置下限的是减伤率而不是防御值？可以参照@凡雪痕 对于[暴走安徒恩]的减伤率下限的
+                    <a href="http://bbs.colg.cn/thread-5629643-1-1.html">测试帖</a>
+                </p>
+                <p>其测试（采用90级角色）和此帖的测试（采用86级角色）得出的减伤率下限基本一致，故可以证明设置下限的是减伤率而不是防御值</p>
+            </section>
+            <section id="test">
+                <div class="page-header">
+                    <h1>测试条件</h1>
+                </div>
+                <p>选取86级暗殿骑士角色（卢克部分为90级暗殿骑士角色）和90级鬼泣角色进行测试，前者提供减防类技能、道具和伤害来源，后者提供减防类技能</p>
+                <br>
+                <dl>
+                    <dt>
                     <h5>减防类道具</h5></dt>
-							<dd>
-								固定类减防道具：[千蛛碎影之毒牙胸甲]（减少12000防御）
-								<br> 百分比类减防道具：[天劫]套装（减少20%魔防）
-							</dd>
-							<dt>
+                    <dd>
+                        固定类减防道具：[千蛛碎影之毒牙胸甲]（减少12000防御）
+                        <br> 百分比类减防道具：[天劫]套装（减少20%魔防）
+                    </dd>
+                    <dt>
                     <h5>伤害来源</h5></dt>
-							<dd>
-								暗殿骑士：[浮空击]（转职前技能）
-							</dd>
-							<br>
-							<dt>
+                    <dd>
+                        暗殿骑士：[浮空击]（转职前技能）
+                    </dd>
+                    <br>
+                    <dt>
                     <h4 class="text-orange">为确保测试的结论真实准确，通过特定手段排除以下干扰因素</h4></dt>
-							<dt>
+                    <dt>
                     <h5>无视攻击力的干扰：</h5></dt>
-							<dd>使用未强化/增幅的武器，无视攻击力为0</dd>
-							<dt>
+                    <dd>使用未强化/增幅的武器，无视攻击力为0</dd>
+                    <dt>
                     <h5>属强/属抗的干扰：</h5></dt>
-							<dd>使用不具有属性攻击的武器和输出技能，伤害结果与属强/属抗无关</dd>
-							<dt>
+                    <dd>使用不具有属性攻击的武器和输出技能，伤害结果与属强/属抗无关</dd>
+                    <dt>
                     <h5>主动/被动Buff的干扰：</h5></dt>
-							<dd>使用转职前的输出技能，伤害结果不受职业主动/被动Buff的加成</dd>
-							<dt>
+                    <dd>使用转职前的输出技能，伤害结果不受职业主动/被动Buff的加成</dd>
+                    <dt>
                     <h5>面板攻击力的干扰：</h5></dt>
-							<dd>测试过程中全程展示人物面板，保证截取伤害截图时面板一致。</dd>
-						</dl>
-					</section>
-					<section id="test-0">
-						<h2 class="text-yellow">普通安徒恩副本</h2>
-						<p>[普通安徒恩]副本的减伤率下限约为77.57%，对应的怪物防御值约为59470（86级角色）/62236（90级角色）。</p>
-						<p>测试对象为[震颤的大地]副本中左侧稀有怪物[湮灭之弗雷伊内斯]。</p>
-						<br>
-						<img class="img-responsive" src="img/arithmetic/table3.jpg">
-						<br>
-						<p>首先，需要计算测试对象：[普通安徒恩]的[震颤的大地]副本中左侧稀有怪物[湮灭之弗雷伊内斯]的原始防御值。</p>
-						<br>
-						<p>角色使用<span class="keywords-green">浮空击</span>攻击垃圾桶时，伤害结果为323623；攻击[湮灭之弗雷伊内斯]时，伤害结果为41449。</p>
-						<p>因此伤害比率为 41449/323623=12.81%，减伤率为87.19%，换算成防御值为117093。</p>
-						<br>
-						<p>然后，通过减防技能的施加，对测算的原始防御值进行检验，并初步试探减伤率下限。</p>
-						<br>
-						<p>角色对怪物使用<span class="keywords-green">暗影漩涡</span>时，伤害结果为61238。</p>
-						<p>因此伤害比率为 61238/323623=18.92%，减伤率为81.08%，换算成防御值为73696。</p>
-						<p>实际减防比率为 1-73696/117093=37.06%，理论减防比率为36.5%，基本吻合。</p>
-						<br>
-						<p>角色对怪物使用<span class="keywords-green">侵蚀之普戾蒙</span>时，伤害结果为63655。</p>
-						<p>因此伤害比率为 63655/323623=19.67%，减伤率为80.33%，换算成防御值为70245。</p>
-						<p>实际减防比率为 1-70245/117093=40.01%，理论减防比率为40.0%，完全吻合。</p>
-						<br>
-						<p>之后，通过多个减防技能的施加，进一步试探减伤率下限。</p>
-						<br>
-						<p>角色对怪物使用<span class="keywords-green">暗影漩涡</span>和<span class="keywords-green">侵蚀之普戾蒙</span>时，伤害结果为72601。
-						</p>
-						<p>因此伤害比率为 72601/323623=22.43%，减伤率为77.57%，换算成防御值为59470。</p>
-						<p>实际减防比率为 1-59470/117093=49.21%，理论减防比率为 36.5%+40.0%=76.5%，无法吻合，说明此时已触及减伤率下限。</p>
-						<br>
-						<p class="keywords-strong">故[普通安徒恩]副本的减伤率下限约为77.57%，对应的怪物防御值约为59470（86级角色）/62236（90级角色）。</p>
-					</section>
-					<section>
-						<h2 class="text-yellow">暴走安徒恩副本</h2>
-						<p>[暴走安徒恩]副本的减伤率下限约为81.12%，对应的怪物防御值约为73900（86级角色）/77340（90级角色）。</p>
-						<p>测试对象为[震颤的大地]副本中左侧稀有怪物[湮灭之弗雷伊内斯]、[擎天之柱]副本中二图稀有怪物[火焰之克瑞夫]。</p>
-						<br>
-						<img class="img-responsive" src="img/arithmetic/table4.jpg">
-						<br>
-						<p>首先，需要计算测试对象：[暴走安徒恩]的[震颤的大地]副本中左侧稀有怪物[湮灭之弗雷伊内斯]的原始防御值。</p>
-						<br>
-						<p>角色使用[浮空击]攻击垃圾桶时，伤害结果为323623；攻击[湮灭之弗雷伊内斯]时，伤害结果为36735。</p>
-						<p>因此伤害比率为 36735/323623=11.35%，减伤率为88.65%，换算成防御值为134326。</p>
-						<br>
-						<p>然后，通过减防技能的施加，对测算的原始防御值进行检验，并初步试探减伤率下限。</p>
-						<br>
-						<p>角色对怪物使用[暗影漩涡]时，伤害结果为54297。</p>
-						<p>因此伤害比率为 54297/323623=16.78%，减伤率为83.22%，换算成防御值为85316。</p>
-						<p>实际减防比率为 1-85316/134326=36.49%，理论减防比率为36.5%，完全吻合。</p>
-						<br>
-						<p>角色对怪物使用[侵蚀之普戾蒙]时，伤害结果为56922。</p>
-						<p>因此伤害比率为 56922/323623=17.59%，减伤率为82.41%，换算成防御值为80588。</p>
-						<p>实际减防比率为 1-80588/134326=40.01%，理论减防比率为40.0%，完全吻合。</p>
-						<br>
-						<p>之后，通过多个减防技能的施加，进一步试探减伤率下限。</p>
-						<br>
-						<p>角色对怪物使用[暗影漩涡]和[侵蚀之普戾蒙]时，伤害结果为61108。</p>
-						<p>因此伤害比率为 61108/323623=18.88%，减伤率为81.12%，换算成防御值为73890。</p>
-						<p>实际减防比率为 1-73890/134326=44.99%，理论减防比率为 36.5%+40.0%=76.5%，无法吻合，说明此时已触及减伤率下限。</p>
-						<br>
-						<p class="keywords-strong">故[暴走安徒恩]副本的减伤率下限约为81.12%，对应的怪物防御值约为73900（86级角色）/77340（90级角色）。</p>
-					</section>
-					<section>
-						<h2 class="text-yellow">普通卢克副本（西海岸版本）</h2>
-						<p>[普通卢克]副本的减伤率下限约为89.04%，对应的怪物防御值约为146250（90级角色）；</p>
-						<p>且由于[普通卢克]副本内怪物的防御均为189914，故攻击方等级不变时，减伤率下限对应的防御减少率约为23.00%；防御值不变时，对应的攻击方等级上限约为Lv 117。</p>
-						<br>
-						<p>测试对象为[诞生之圣所]副本中二图稀有怪物[全金属机甲斗神]。</p>
-						<br>
-						<p>首先，需要计算测试对象：[普通卢克]的[诞生之圣所]副本中二图稀有怪物[全金属机甲斗神]的原始防御值。</p>
-						<br>
-						<p>角色使用[浮空击]攻击垃圾桶时，伤害结果为216780；攻击[全金属机甲斗神]时，伤害结果为18765。</p>
-						<p>因此伤害比率为 18765/216780=8.66%，减伤率为91.34%，换算成防御值为189942。</p>
-						<br> 与韩服玩家测算的189914相比，误差仅0.015%，在可容许的范围内。
-						<br>
-						<p>然后，通过减防技能的施加，初步试探减伤率下限。</p>
-						<br>
-						<p>角色对怪物使用<span class="keywords-green">暗影漩涡</span>时，伤害结果为23757。</p>
-						<p>因此伤害比率为 <i>23757/216780=10.96%</i>，减伤率为89.04%，换算成防御值为146248。</p>
-						<p>实际减防比率为 <i>1-146248/216780=23.00%</i>，理论减防比率为26.6%，无法吻合，说明此时已触及减伤率下限。</p>
-						<br>
-						<p>角色对怪物使用[侵蚀之普戾蒙]时，伤害结果为23757。</p>
-						<p>因此伤害比率为 <i>23757/216780=10.96%</i>，减伤率为89.04%，换算成防御值为146255。</p>
-						<p>实际减防比率为 <i>1-146255/216780=23.00%</i>，理论减防比率为40.0%，无法吻合，说明此时已触及减伤率下限。</p>
-						<br>
-						<p>之后，通过多个减防技能的施加，进一步试探减伤率下限。</p>
-						<br>
-						<p>角色对怪物使用<span>暗影漩涡</span>和[侵蚀之普戾蒙]时，伤害结果为23754。</p>
-						<p>因此伤害比率为 <i>23754/216780=10.96%</i>，减伤率为89.04%，换算成防御值为146269。</p>
-						<p>实际减防比率为 <i>1-146269/216780=22.99%</i>，理论减防比率为 26.6%+40.0%=66.6%，无法吻合，说明此时已触及减伤率下限。</p>
+                    <dd>测试过程中全程展示人物面板，保证截取伤害截图时面板一致。</dd>
+                </dl>
+            </section>
+            <section id="test-0">
+                <h2 class="text-yellow">普通安徒恩副本</h2>
+                <p>[普通安徒恩]副本的减伤率下限约为77.57%，对应的怪物防御值约为59470（86级角色）/62236（90级角色）。</p>
+                <p>测试对象为[震颤的大地]副本中左侧稀有怪物[湮灭之弗雷伊内斯]。</p>
+                <br>
+                <img class="img-responsive" src="img/arithmetic/table3.jpg">
+                <br>
+                <p>首先，需要计算测试对象：[普通安徒恩]的[震颤的大地]副本中左侧稀有怪物[湮灭之弗雷伊内斯]的原始防御值。</p>
+                <br>
+                <p>角色使用<span class="keywords-green">浮空击</span>攻击垃圾桶时，伤害结果为323623；攻击[湮灭之弗雷伊内斯]时，伤害结果为41449。</p>
+                <p>因此伤害比率为 41449/323623=12.81%，减伤率为87.19%，换算成防御值为117093。</p>
+                <br>
+                <p>然后，通过减防技能的施加，对测算的原始防御值进行检验，并初步试探减伤率下限。</p>
+                <br>
+                <p>角色对怪物使用<span class="keywords-green">暗影漩涡</span>时，伤害结果为61238。</p>
+                <p>因此伤害比率为 61238/323623=18.92%，减伤率为81.08%，换算成防御值为73696。</p>
+                <p>实际减防比率为 1-73696/117093=37.06%，理论减防比率为36.5%，基本吻合。</p>
+                <br>
+                <p>角色对怪物使用<span class="keywords-green">侵蚀之普戾蒙</span>时，伤害结果为63655。</p>
+                <p>因此伤害比率为 63655/323623=19.67%，减伤率为80.33%，换算成防御值为70245。</p>
+                <p>实际减防比率为 1-70245/117093=40.01%，理论减防比率为40.0%，完全吻合。</p>
+                <br>
+                <p>之后，通过多个减防技能的施加，进一步试探减伤率下限。</p>
+                <br>
+                <p>角色对怪物使用<span class="keywords-green">暗影漩涡</span>和<span class="keywords-green">侵蚀之普戾蒙</span>时，伤害结果为72601。
+                </p>
+                <p>因此伤害比率为 72601/323623=22.43%，减伤率为77.57%，换算成防御值为59470。</p>
+                <p>实际减防比率为 1-59470/117093=49.21%，理论减防比率为 36.5%+40.0%=76.5%，无法吻合，说明此时已触及减伤率下限。</p>
+                <br>
+                <p class="keywords-strong">故[普通安徒恩]副本的减伤率下限约为77.57%，对应的怪物防御值约为59470（86级角色）/62236（90级角色）。</p>
+            </section>
+            <section id="test-1">
+                <h2 class="text-yellow">暴走安徒恩副本</h2>
+                <p>[暴走安徒恩]副本的减伤率下限约为81.12%，对应的怪物防御值约为73900（86级角色）/77340（90级角色）。</p>
+                <p>测试对象为[震颤的大地]副本中左侧稀有怪物[湮灭之弗雷伊内斯]、[擎天之柱]副本中二图稀有怪物[火焰之克瑞夫]。</p>
+                <br>
+                <img class="img-responsive" src="img/arithmetic/table4.jpg">
+                <br>
+                <p>首先，需要计算测试对象：[暴走安徒恩]的[震颤的大地]副本中左侧稀有怪物[湮灭之弗雷伊内斯]的原始防御值。</p>
+                <br>
+                <p>角色使用[浮空击]攻击垃圾桶时，伤害结果为323623；攻击[湮灭之弗雷伊内斯]时，伤害结果为36735。</p>
+                <p>因此伤害比率为 36735/323623=11.35%，减伤率为88.65%，换算成防御值为134326。</p>
+                <br>
+                <p>然后，通过减防技能的施加，对测算的原始防御值进行检验，并初步试探减伤率下限。</p>
+                <br>
+                <p>角色对怪物使用[暗影漩涡]时，伤害结果为54297。</p>
+                <p>因此伤害比率为 54297/323623=16.78%，减伤率为83.22%，换算成防御值为85316。</p>
+                <p>实际减防比率为 1-85316/134326=36.49%，理论减防比率为36.5%，完全吻合。</p>
+                <br>
+                <p>角色对怪物使用[侵蚀之普戾蒙]时，伤害结果为56922。</p>
+                <p>因此伤害比率为 56922/323623=17.59%，减伤率为82.41%，换算成防御值为80588。</p>
+                <p>实际减防比率为 1-80588/134326=40.01%，理论减防比率为40.0%，完全吻合。</p>
+                <br>
+                <p>之后，通过多个减防技能的施加，进一步试探减伤率下限。</p>
+                <br>
+                <p>角色对怪物使用[暗影漩涡]和[侵蚀之普戾蒙]时，伤害结果为61108。</p>
+                <p>因此伤害比率为 61108/323623=18.88%，减伤率为81.12%，换算成防御值为73890。</p>
+                <p>实际减防比率为 1-73890/134326=44.99%，理论减防比率为 36.5%+40.0%=76.5%，无法吻合，说明此时已触及减伤率下限。</p>
+                <br>
+                <p class="keywords-strong">故[暴走安徒恩]副本的减伤率下限约为81.12%，对应的怪物防御值约为73900（86级角色）/77340（90级角色）。</p>
+            </section>
+            <section id="test-2">
+                <h2 class="text-yellow">普通卢克副本（西海岸版本）</h2>
+                <p><span class="keywords-purple">普通卢克</span>副本的减伤率下限约为89.04%，对应的怪物防御值约为146250（90级角色）；</p>
+                <p>且由于<span class="keywords-purple">普通卢克</span>副本内怪物的防御均为189914，故攻击方等级不变时，减伤率下限对应的防御减少率约为23.00%；防御值不变时，对应的攻击方等级上限约为Lv 117。</p>
+                <br>
+                <p>测试对象为<span class="keywords-purple">诞生之圣所</span>副本中二图稀有怪物<span class="keywords-brown">全金属机甲斗神</span>。</p>
+                <br>
+                <p>首先，需要计算测试对象：<span class="keywords-purple">普通卢克</span>的<span class="keywords-purple">诞生之圣</span>所副本中二图稀有怪物<span class="keywords-brown">全金属机甲斗神</span>的原始防御值。</p>
+                <br>
+                <p>角色使用<span class="keywords-green">浮空击</span>攻击垃圾桶时，伤害结果为216780；攻击<span class="keywords-brown">全金属机甲斗神</span>时，伤害结果为18765。</p>
+                <p>因此伤害比率为 18765/216780=8.66%，减伤率为91.34%，换算成防御值为189942。</p>
+                <br> 与韩服玩家测算的189914相比，误差仅0.015%，在可容许的范围内。
+                <br>
+                <p>然后，通过减防技能的施加，初步试探减伤率下限。</p>
+                <br>
+                <p>角色对怪物使用<span class="keywords-green">暗影漩涡</span>时，伤害结果为23757。</p>
+                <p>因此伤害比率为 <i>23757/216780=10.96%</i>，减伤率为89.04%，换算成防御值为146248。</p>
+                <p>实际减防比率为 <i>1-146248/216780=23.00%</i>，理论减防比率为26.6%，无法吻合，说明此时已触及减伤率下限。</p>
+                <br>
+                <p>角色对怪物使用<span class="keywords-green">侵蚀之普戾蒙</span>时，伤害结果为23757。</p>
+                <p>因此伤害比率为 <i>23757/216780=10.96%</i>，减伤率为89.04%，换算成防御值为146255。</p>
+                <p>实际减防比率为 <i>1-146255/216780=23.00%</i>，理论减防比率为40.0%，无法吻合，说明此时已触及减伤率下限。</p>
+                <br>
+                <p>之后，通过多个减防技能的施加，进一步试探减伤率下限。</p>
+                <br>
+                <p>角色对怪物使用<span class="keywords-green">暗影漩涡</span>和<span class="keywords-green">侵蚀之普戾蒙</span>时，伤害结果为23754。</p>
+                <p>因此伤害比率为 <i>23754/216780=10.96%</i>，减伤率为89.04%，换算成防御值为146269。</p>
+                <p>实际减防比率为 <i>1-146269/216780=22.99%</i>，理论减防比率为 26.6%+40.0%=66.6%，无法吻合，说明此时已触及减伤率下限。</p>
 
-						<p class="keywords-strong">故[普通卢克]副本的减伤率下限约为89.04%，对应的怪物防御值约为146250（90级角色）； 且由于[普通卢克]副本内怪物的防御均为189914，故攻击方等级不变时，减伤率下限对应的防御减少率约为23.00%；防御值不变时，对应的攻击方等级上限约为Lv 117。</p>
-					</section>
+                <p class="keywords-strong">故[普通卢克]副本的减伤率下限约为89.04%，对应的怪物防御值约为146250（90级角色）；
+                    且由于[普通卢克]副本内怪物的防御均为189914，故攻击方等级不变时，减伤率下限对应的防御减少率约为23.00%；防御值不变时，对应的攻击方等级上限约为Lv 117。</p>
+            </section>
+            <section id="test-3">
+                <h2 class="text-yellow">固定减防类装备</h2>
+                <hr>
+                <p>固定减防类装备无法突破副本的减伤率下限。</p>
+                <p>测试对象为<span class="keywords-purple">震颤的大地</span>副本中左侧稀有怪物<span class="keywords-brown">湮灭之弗雷伊内斯</span>。</p>
+                <img src="img/arithmetic/table5.jpg">
+                <br>
+                <br>
+                <p>前文已经测得，<span class="keywords-purple">暴走安徒恩</span>的<span class="keywords-purple">震颤的大地</span>副本中左侧稀有怪物<span
+                        class="keywords-brown">湮灭之弗雷伊内斯</span>的原始防御值为134326。</p>
+                <p>由第一行数据可知，重复测试得到的原始防御值为134357，误差仅为0.023%，在可容许的范围内。</p>
+                <br>
+                <p>首先，通过固定减防类装备的施加，初步试探能否突破减伤率下限。</p>
+                <br>
+                <p>
+                    穿戴
+                    <span class="keywords-pink">千蛛碎影之毒牙胸甲</span>
+                    的情况下，角色使用
+                    <span class="keywords-green">浮空击</span>
+                    攻击垃圾桶时，伤害结果为328129；攻击
+                    <span class="keywords-brown">湮灭之弗雷伊内斯</span>
+                    时（已触发减防），伤害结果为40442。
+                </p>
+                <p>因此伤害比率为 40442/328129=12.33%，减伤率为87.67%，换算成防御值为122353。</p>
+                <p>实际减防值为 134357-122353=12003，理论减防值为 12000，完全吻合。</p>
+                <br>
+                <p>然后，通过减防技能的施加与固定减防类装备叠加，并初步试探能否突破减伤率下限。</p>
+                <br>
+                <p>穿戴<span class="keywords-pink">千蛛碎影之毒牙胸甲</span>的情况下，角色对怪物使用<span class="keywords-green">侵蚀之普戾蒙</span>时，伤害结果为61950。</p>
+                <p>因此伤害比率为 61950/134326=18.88%，减伤率为81.12%，换算成防御值为73903。</p>
+                <p>实际减防值为 134357-73903=60454，理论减防值为 12000+（134326-12000）*40%=60930，无法吻合，说明此时已触及减伤率下限。</p>
+                <br>
+                <p class="keywords-strong text-center">故固定减防类装备无法突破副本的减伤率下限。</p>
+            </section>
+            <section id="test-4">
+                <h2 class="text-yellow">百分比减防类装备</h2>
+                <p>百分比减防类装备无法突破副本的减伤率下限。</p>
+                <p>测试对象为<span class="keywords-purple">震颤的大地</span>副本中左侧稀有怪物<span class="keywords-brown">湮灭之弗雷伊内斯</span></p>
+                <br>
+                <img src="img/arithmetic/table6.jpg">
+                <br>
+                <br>
+                <p>前文已经测得，<span class="keywords-purple">暴走安徒恩</span>的<span class="keywords-brown">震颤的大地</span>副本中左侧稀有怪物<span class="keywords-brown">湮灭之弗雷伊内斯</span>的原始防御值为134326。</p>
+                <br>
+                <p>首先，通过百分比减防类装备的施加，对测算的原始防御值进行检验，并初步试探能否突破减伤率下限。</p>
+                <br>
+                <p>穿戴<span class="keywords-pink">天劫</span>套装的情况下，角色使用<span class="keywords-green">浮空击</span>攻击垃圾桶时，伤害结果为306405；攻击<span class="keywords-purple">湮灭之弗雷伊内斯</span>时，伤害结果为40110。</p>
+                <p>
+                    因此伤害比率为 40110/306405=13.09%，减伤率为86.91%，换算成防御值为114193。
+                    <br>
+                    <br>
+                    <i>（天劫的18%技能攻击力加成在计算伤害比率时，分子与分母中均具备此项，相抵后不影响伤害比率的计算结果，下同）</i>
+                </p>
+                <p>实际减防比率为 1-114193/134326=14.99%，理论减防比率为 20%*75%=15%，完全吻合。</p>
+                <br>
+                <p>然后，通过减防技能的施加与百分比减防类装备叠加，对测算的原始防御值进行检验，并初步试探能否突破减伤率下限。</p>
+                <br>
+                <p>
+                    穿戴<span class="keywords-pink">天劫套装</span>的情况下，角色对怪物使用<span class="keywords-green">暗影漩涡</span>时，伤害结果为55618
+                    <br>
+                    <br>
+                    <i>（图中伤害为未暴击时数值，统一为暴击后数据 37079*1.5=55618）</i>
+                    <br>
+                </p>
+                <p>因此伤害比率为 55618/306405=18.15%，减伤率为81.85%，换算成防御值为77556。</p>
+                <p>实际减防比率为 1-77556/134326=42.26%，理论减防比率为 1-（1-32.1%）*（1-20%*75%）=42.285%，完全吻合。</p>
+                <br>
+                <p>之后，通过其他减防技能的施加与百分比减防类装备叠加，进一步试探能否突破减伤率下限。</p>
+                <br>
+                <p>穿戴<span class="keywords-pink">天劫</span>套装的情况下，角色对怪物使用<span class="keywords-green">侵蚀之普戾蒙</span>时，伤害结果为57835。</p>
+                <p>因此伤害比率为 57835/306405=18.88%，减伤率为81.12%，换算成防御值为73924</p>
+                <p>实际减防比率为 1-73924/134326=44.97%，理论减防比率为 1-（1-40.0%）*（1-20%*75%）=49.0%，无法吻合，说明此时已触及减伤率下限。</p>
+                <p class="keywords-strong text-center">故百分比减防类装备无法突破副本的减伤率下限。</p>
+            </section>
+            <section id="test-5">
+                <h2 class="text-yellow">无视防御类装备</h2>
+                <hr>
+                <!--这也敢出个标题，有木有搞错！增加俩个空DIV用来撑撑版面-->
+                <div style="visibility: hidden;height: 25vh"></div>
+                <blockquote>
+                    <p>对此，官方在开放90级装备时已经给出过新增“无视防御”属性的相关说明；</p>
+                    <p>且西海岸暂时不具备测试条件，因此不再展示测试过程。</p>
+                </blockquote>
+                <div style="visibility: hidden;height: 25vh"></div>
+                <p class="keywords-strong text-center">无视防御类装备无法突破副本的减伤率下限。</p>
+            </section>
+            <section id="test-6">
+                <h2 class="text-yellow">结论</h2>
+                <h4 class="text-orange">减伤率下限</h4>
+                <ol class="text-list">
+                    <li>[普通安徒恩]副本的减伤率下限约为77.57%，对应的怪物防御值约为59470（86级角色）/62236（90级角色）。</li>
+                    <li>[暴走安徒恩]副本的减伤率下限约为81.12%，对应的怪物防御值约为73900（86级角色）/77340（90级角色）。</li>
+                    <li>[普通卢克]副本的减伤率下限约为89.04%，对应的怪物防御值约为146250（90级角色）；且由于[普通卢克]副本内怪物的防御均为189914，
+                        故攻击方等级不变时，减伤率下限对应的防御减少率约为23.00%；防御值不变时，对应的攻击方等级上限约为Lv 117。
+                    </li>
+                    <li>固定减防类、百分比减防类、无视防御类装备均无法突破副本的减伤率下限。</li>
+                </ol>
+            </section>
+        </div>
+        <div class="col-md-3 hidden-xs hidden-sm">
+            <div id="nav" class="navbar-example">
+                <ul class="nav navs-white" role="tablist">
+                    <li>
+                        <a href="#preface">前言</a>
+                    </li>
+                    <li>
+                        <a href="#debuff">减防算法</a>
+                        <ul class="nav  navs-white">
+                            <li>
+                                <a href="#item">固定类与百分比类装备</a>
+                            </li>
+                            <li>
+                                <a href="#item-PCT">百分比与百分比类装备</a>
+                            </li>
+                            <li>
+                                <a href="#unititem">角色技能与百分比类装备</a>
+                            </li>
+                            <li>
+                                <a href="#unit">角色技能与角色技能</a>
+                            </li>
+                            <li>
+                                <a href="#ignore">无视目标防御</a>
+                            </li>
+                            <li>
+                                <a href="#epilog">结论</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#minimum">减伤率下限</a>
+                    </li>
+                    <li>
+                        <a href="#test">测试条件</a>
+                        <ul class="nav  navs-white">
+                            <li><a href="#test-0">普通安徒恩副本</a></li>
+                            <li><a href="#test-1">暴走安徒恩副本</a></li>
+                            <li><a href="#test-2">普通卢克副本（西海岸版本）</a></li>
+                            <li><a href="#test-3">固定减防类装备</a></li>
+                            <li><a href="#test-4">百分比减防类装备</a></li>
+                            <li><a href="#test-5">无视防御类装备</a></li>
+                            <li><a href="#test-6">结论</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Content End-->
+<!--Footer Start-->
+<footer class="footer">
+    <div class="container text-center">
+        TEST
+        <div class="thumbnail visible-xs">
+            <img src="img/MagicArray.png" width="100">
+            <span>关注微信号</span>
+        </div>
+    </div>
+</footer>
+<!--Footer End-->
 
-				</div>
-				<div class="col-md-3 hidden-xs hidden-sm">
-					<div id="nav" class="navbar-example">
-						<ul class="nav navs-white" role="tablist">
-							<li>
-								<a href="#item">固定类与百分比类装备</a>
-							</li>
-							<li>
-								<a href="#item-PCT">百分比与百分比类装备</a>
-							</li>
-							<li>
-								<a href="#unititem">角色技能与百分比类装备</a>
-							</li>
-							<li>
-								<a href="#unit">角色技能与角色技能</a>
-							</li>
-							<li>
-								<a href="#ignore">无视目标防御</a>
-							</li>
-							<li>
-								<a href="#epilog">结论</a>
-							</li>
-							<li>
-								<a href="#minimum">减伤率下限</a>
-							</li>
-							<li>
-								<a href="#test">测试条件</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--Content End-->
-		<!--Footer Start-->
-		<footer class="footer">
-			<div class="container text-center">
-				TEST
-				<div class="thumbnail visible-xs">
-					<img src="img/MagicArray.png" width="100">
-					<span>关注微信号</span>
-				</div>
-			</div>
-		</footer>
-		<!--Footer End-->
-
-		<script src="js/jquery-3.1.1.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/base.js"></script>
-	</body>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/base.js"></script>
+</body>
 
 </html>

@@ -21,7 +21,6 @@ body {
 //c1：文字颜色 c2：背景色 c3 边框颜色
 @mixin keywords($c1:#4c4177,$c2:#FFD9E8,$c3:transparent){
   padding: 0 4px;
-  font-size: 90%;
   color: $c1;
   background-color: $c2;
   border: 1px solid  $c3;
@@ -50,7 +49,8 @@ body {
 
 .keywords-purple {
   margin: 0 2px;
-  @include keywords(#7f4a88,#fbede1);
+  @include keywords(#ffd9e8,#7f4a88,transparent);
+  font-size: 1.1em;
 }
 
 .keywords-green {
@@ -58,7 +58,11 @@ body {
   @include keywords(#2e8b5c,#dde5da);
   font-size: 1.1em;
 }
-
+.keywords-brown {
+  margin: 0 2px;
+  @include keywords(#f6f6f6,#ea7362);
+  font-size: 1.1em;
+}
 .keywords-pink {
   margin: 0 2px;
   @include keywords(#ff8532,#fdede1,transparent);
@@ -108,9 +112,15 @@ body {
 #nav {
   top: 55px;
 
-  >ul>li.active>a{
+  ul>li.active>a{
     text-decoration: none;
     border-left: 2px solid #b74242;
+  }
+  ul>li>ul{
+    display: none;
+  }
+  li.active>ul{
+    display: block;
   }
 }
 
@@ -138,6 +148,9 @@ body {
 .text-list {
   line-height: 1.8em;
   color: #fbf3ce;
+  ol {
+    list-style: lower-latin;
+  }
 }
 
 //color: #ffd9e8;
@@ -156,6 +169,9 @@ body {
 
   >li>a {
     color: #fbede1;
+  }
+  ul.nav>li>a {
+    padding-left: 30px;
   }
 }
 .text-yellow {

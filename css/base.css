@@ -30,18 +30,26 @@ body {
 .keywords-purple {
   margin: 0 2px;
   padding: 0 4px;
-  font-size: 90%;
-  color: #7f4a88;
-  background-color: #fbede1;
+  color: #ffd9e8;
+  background-color: #7f4a88;
   border: 1px solid transparent;
-  border-radius: 4px; }
+  border-radius: 4px;
+  font-size: 1.1em; }
 
 .keywords-green {
   margin: 0 2px;
   padding: 0 4px;
-  font-size: 90%;
   color: #2e8b5c;
   background-color: #dde5da;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 1.1em; }
+
+.keywords-brown {
+  margin: 0 2px;
+  padding: 0 4px;
+  color: #f6f6f6;
+  background-color: #ea7362;
   border: 1px solid transparent;
   border-radius: 4px;
   font-size: 1.1em; }
@@ -49,7 +57,6 @@ body {
 .keywords-pink {
   margin: 0 2px;
   padding: 0 4px;
-  font-size: 90%;
   color: #ff8532;
   background-color: #fdede1;
   border: 1px solid transparent;
@@ -59,7 +66,6 @@ body {
 .keywords-strong {
   margin: 15px 2px;
   padding: 0 4px;
-  font-size: 90%;
   color: #fff;
   background-color: #bd3a47;
   border: 1px solid transparent;
@@ -95,9 +101,13 @@ body {
 
 #nav {
   top: 55px; }
-  #nav > ul > li.active > a {
+  #nav ul > li.active > a {
     text-decoration: none;
     border-left: 2px solid #b74242; }
+  #nav ul > li > ul {
+    display: none; }
+  #nav li.active > ul {
+    display: block; }
 
 .footer {
   margin-top: 20px;
@@ -121,6 +131,8 @@ body {
 .text-list {
   line-height: 1.8em;
   color: #fbf3ce; }
+  .text-list ol {
+    list-style: lower-latin; }
 
 .font-orange {
   color: #ffe6b5;
@@ -132,6 +144,8 @@ body {
 
 .navs-white > li > a {
   color: #fbede1; }
+.navs-white ul.nav > li > a {
+  padding-left: 30px; }
 
 .text-yellow {
   color: #fbd157; }
