@@ -66,7 +66,7 @@ body {
 .keywords-strong {
   margin: 15px 2px;
   padding: 0 4px;
-  color: white;
+  color: #fff;
   background-color: #bd3a47;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -77,7 +77,7 @@ body {
   padding-top: 50px; }
 
 .banner {
-  background-image: url(http://wx3.sinaimg.cn/large/005JVuCMly1fbx2shlvmbj30wi09bh1k.jpg);
+  background-image: url(https://wx3.sinaimg.cn/large/005JVuCMly1fbx2shlvmbj30wi09bh1k.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: center;
@@ -157,3 +157,5 @@ blockquote > h4 {
   color: #ffa700; }
 blockquote > p {
   font-size: 0.8em; }
+
+/*# sourceMappingURL=base.css.map */
