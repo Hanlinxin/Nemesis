@@ -89,8 +89,10 @@ body {
 
 @media screen and  (max-width: 768px) {
   .banner{
-    background-image: url(../img/test_1.png);
+    background-image: url(https://wx4.sinaimg.cn/mw690/005JVuCMly1fby189qoglj30a004gmyh.jpg);
     height: 160px;
+    -ms-background-position-y: center;
+    background-position-y: center;
   }
 }
 
