@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
@@ -7,17 +7,31 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,user-scalable=no">
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <title>减防相关问题测试</title>
+    <title>进军魔界的前夜</title>
     <meta name="keyword" content="减防算法 ，减防叠加，百分比减防">
     <meta name="x5-fullscreen" content="true">
     <meta name="x5-page-mode" content="app">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="icon" href="favicon.ico">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style>
+        .item {
+            color: #f60;
+            border-bottom: 1px solid;
+            margin-left: 2.5px;
+            margin-right: 2.5px;
+        }
+
+        .skill {
+            color: #8bc34a;
+            border-bottom: 1px solid;
+            margin-left: 2.5px;
+            margin-right: 2.5px;
+        }
+    </style>
 </head>
 
 <body data-spy="scroll" data-target="#nav">
-<header class="header">
+<header class="header" style="margin-bottom: 50px">
     <!--Menu Start-->
     <nav class="navbar navbar-inverse navbar-fixed-top topmost" role="navigation">
         <div class="container">
@@ -29,626 +43,648 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="http://bbs.colg.cn/">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAAAUCAYAAABVhbkHAAAACXBIWXMAAAsTAAALEwEAmpwYAAA4G2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS41LWMwMTQgNzkuMTUxNDgxLCAyMDEzLzAzLzEzLTEyOjA5OjE1ICAgICAgICAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIKICAgICAgICAgICAgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIgogICAgICAgICAgICB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIKICAgICAgICAgICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIj4KICAgICAgICAgPHhtcDpDcmVhdG9yVG9vbD5BZG9iZSBQaG90b3Nob3AgQ0MgKFdpbmRvd3MpPC94bXA6Q3JlYXRvclRvb2w+CiAgICAgICAgIDx4bXA6Q3JlYXRlRGF0ZT4yMDE3LTAxLTE3VDE0OjE2OjM1KzA4OjAwPC94bXA6Q3JlYXRlRGF0ZT4KICAgICAgICAgPHhtcDpNb2RpZnlEYXRlPjIwMTctMDEtMTdUMTY6MzU6MTYrMDg6MDA8L3htcDpNb2RpZnlEYXRlPgogICAgICAgICA8eG1wOk1ldGFkYXRhRGF0ZT4yMDE3LTAxLTE3VDE2OjM1OjE2KzA4OjAwPC94bXA6TWV0YWRhdGFEYXRlPgogICAgICAgICA8ZGM6Zm9ybWF0PmltYWdlL3BuZzwvZGM6Zm9ybWF0PgogICAgICAgICA8cGhvdG9zaG9wOkNvbG9yTW9kZT4zPC9waG90b3Nob3A6Q29sb3JNb2RlPgogICAgICAgICA8eG1wTU06SW5zdGFuY2VJRD54bXAuaWlkOjM0YzQ4YTFjLTNkODctMTM0Yy1iYmZmLTk5MTM2YmRmMThlYTwveG1wTU06SW5zdGFuY2VJRD4KICAgICAgICAgPHhtcE1NOkRvY3VtZW50SUQ+eG1wLmRpZDozNGM0OGExYy0zZDg3LTEzNGMtYmJmZi05OTEzNmJkZjE4ZWE8L3htcE1NOkRvY3VtZW50SUQ+CiAgICAgICAgIDx4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ+eG1wLmRpZDozNGM0OGExYy0zZDg3LTEzNGMtYmJmZi05OTEzNmJkZjE4ZWE8L3htcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD4KICAgICAgICAgPHhtcE1NOkhpc3Rvcnk+CiAgICAgICAgICAgIDxyZGY6U2VxPgogICAgICAgICAgICAgICA8cmRmOmxpIHJkZjpwYXJzZVR5cGU9IlJlc291cmNlIj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OmFjdGlvbj5jcmVhdGVkPC9zdEV2dDphY3Rpb24+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDppbnN0YW5jZUlEPnhtcC5paWQ6MzRjNDhhMWMtM2Q4Ny0xMzRjLWJiZmYtOTkxMzZiZGYxOGVhPC9zdEV2dDppbnN0YW5jZUlEPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6d2hlbj4yMDE3LTAxLTE3VDE0OjE2OjM1KzA4OjAwPC9zdEV2dDp3aGVuPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6c29mdHdhcmVBZ2VudD5BZG9iZSBQaG90b3Nob3AgQ0MgKFdpbmRvd3MpPC9zdEV2dDpzb2Z0d2FyZUFnZW50PgogICAgICAgICAgICAgICA8L3JkZjpsaT4KICAgICAgICAgICAgPC9yZGY6U2VxPgogICAgICAgICA8L3htcE1NOkhpc3Rvcnk+CiAgICAgICAgIDx0aWZmOk9yaWVudGF0aW9uPjE8L3RpZmY6T3JpZW50YXRpb24+CiAgICAgICAgIDx0aWZmOlhSZXNvbHV0aW9uPjcyMDAwMC8xMDAwMDwvdGlmZjpYUmVzb2x1dGlvbj4KICAgICAgICAgPHRpZmY6WVJlc29sdXRpb24+NzIwMDAwLzEwMDAwPC90aWZmOllSZXNvbHV0aW9uPgogICAgICAgICA8dGlmZjpSZXNvbHV0aW9uVW5pdD4yPC90aWZmOlJlc29sdXRpb25Vbml0PgogICAgICAgICA8ZXhpZjpDb2xvclNwYWNlPjY1NTM1PC9leGlmOkNvbG9yU3BhY2U+CiAgICAgICAgIDxleGlmOlBpeGVsWERpbWVuc2lvbj4xMTI8L2V4aWY6UGl4ZWxYRGltZW5zaW9uPgogICAgICAgICA8ZXhpZjpQaXhlbFlEaW1lbnNpb24+MjA8L2V4aWY6UGl4ZWxZRGltZW5zaW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPD94cGFja2V0IGVuZD0idyI/PoWJAVUAAAAgY0hSTQAAeiUAAICDAAD5/wAAgOkAAHUwAADqYAAAOpgAABdvkl/FRgAACgpJREFUeNq0mnl0VNUdxz9vJjNjlknSLCQhBrMQERAEFEpjXFBagQiWYsX2KFhRPLbFqmg9PYdaYrWLClg41UMLKtbWorQIsrRAQRFRBNsqUWJYUiAhC1kJWWYyM7d/vN9M3ry8mWSg/Z5zz+Te++7v3Xt/++9FU0oRAbOBqcAYIBvoBd4AXgWGAfsZPEqAW4VWEWAHqoHPgC3A3gjrioHtgA2IB34H/IwLQykwA7hS9uAEGoDDwG5gA2B9GdVLoaIc3P1mhgJ/Q5/pjfhmu+z+Eun3AF2yIkmaH9Bkvs1AzQ0kyN9dQIfcBriAGs2CgdOAXwFXWWylHGgCVsllPgp0Rrm0y4Flwrxo2Ak8Jgw1YizwqaH/R+CuGBk3AnhBzhUNR4AngHf6zXjrYX8e9PrAETZTAJywpBaQi08FurOorUmmsakZ0MgekkZO9lnwtFHflEJNgwOXS+EPKDSbg6vy2wAPaFDblEpdsxOUn6x0yMtsgYAKipoXpZSxPa6i42ql1BpDv1IplW+iEWyzlFIdavDwKKW+Y6IxyvTMixHeFandFuMelFJqsSWt/yxFbQW1J6wNU3s4r/agwto/UKoCFTiYq5Y/MUmVThytkjNGKshUkKlShoxUc8quUaqqWJU/OFxBlsxlKBihNjw/XqkjKFWhqblloxTkKshUs2bcpNThdKX2ht5VE2eQmYeBZy1kqVsUtwpd/haYpHsXMFoXmRCuAzZFkPRmMRDZpnEn8CcxFJu4eJQCb0eYqxOjdanF3PNAI/CHsNHMO8G5VJd8LcpbA0AunKoezR1PxnPgYJXYxD60N57lL7uLwZeFgy+Bs4bZJtbtmMCc21JAa8fvPQfU6qR7z4EWbgJs8jseWGHaying+8BwMYU3AieBd03PFQF/NvTdwEaLo60RxhYL40cDSy18x1uGi7VdIPOSIgjBKmCCnOcKYCTwtMVzr8lcH+ILIP2GcDG1Yt4QOFU9nIn3wIGDhwzMSwDyJXyABEcn2DzY7fZ+ZHbs76DlRDbEg9MZB+h65nTYQAUsGbjaROMTYBzwEnAGaBeJrQOmAD8HfLJlP/BNYTDClHQDLR8wHbgf2Ae0AueAL8Snjhe6QThEC4JrLwS/ANIM/R7gJuAh4F/AefHdlcBPgUnAUdlXm7z3h2EUNSc4UvUTR0I8KG8OMx5x09jweeiKR40cx8oll7P3taHsWpvDou9eTm7+OFRHAJuBYEZ2IYnudDznT/L2hy5I1Yj+Qp21E6UF0SrMOB9l3ZNiYuwGd90kZvBe07PzJFKLhM+Fwf82jM0F7hOasSIFeMA0Nh/YE2XNQYmQU0UgbXKWcPXyd0U2nwrIgN+uyeTzysqQLM64aQIbl3XiTPsC2gNgg5uvi6f+hBPN1cQ5T2JfqD42kUsS83hz43ts2Ku4d1E6Dnt0GbYBd5jGnhuAeUEcFQmuksuvEe1MNV3MG4Og9amkJ0ZcL8IUK6aYLv9D4M1BrPNIWtEkPrAmPBJtgo7DushawQmqPZuVm3wSNkBhQRFbl53DGVcBxwO69z8L1HWTnVYBSS14/K4QiQTbWW6d7ARs7NzfhjqWQVpi14AM/JppbPNFBA5mWjtiWLvd1P+WhAsqxj1MMvX/yv8CzgzI+nZki5YEx47aOVrVIgOpPDE/CVKP6EzTTL6yC/A7sWl9BJtaeyi72kOSOxVfTy27D7lIS0mKakbjCE9PO8XnXSg2ivT2ii97J4a1u4AHZbd20cphF7CHZFPfeJ5s4GVJgv0D0EmQgOo3IVkfMhuOrbIWKzucaHaDqgmp5MRij+5VtcFtvK3bRVpRKzdPTmfTzhbWv9tLsju7nzEwM9Bv0kjHRTCwVwKALqk9xMWwNk7MmBdIlN/A4I8fJt+YgqIgEsXfDha1fQwUpgXkhHEmJmoQUHbDdn3Y8cZkP3p9DnDUMm9qJpt2Oti8t5XiUcMHNKGnw+MoCi+CgTMlon0d+D3wTAxr54t2vC405kraEitOW1RiIjF3IFSH9VKnwNhlupiaKfkhy91mcL92aloS9RsdNBNt0NpD2eROEtx5NDQ0sO+DjwZk4Humse9dBAO3mvozJCcbDMwlsjf6R4KDwr4odOuBMvGvMw2tTCLxEmCy/E4DXuxHPe9RKFioOxstvNxxRb6NtKxg9tLC6s0BiE/VDbayuHktgAojoqArAdews8y43q1LibdxQAaaE96FcoiBcKMk5qXALL3+QIVEpcaQ/pVB0HpI6p6ETg//1APzmHFQ/HDoyoHlhqrSNvHVWwxtm1ifBcLwe+RcpyzfUPg0JMaHZ6ndkJDbzMwSV0glN++s4eW1Y6DQrZ/EJQXtdOArDlQgDsy1aOUA5WHOtT5TQB+ZgcctKid/B26OsCZd5vfIV4T3RQiCtfanTM/fLoVvVwR6C8P8jI4VoVDO5OcHwUCfJPJGPCJFg0hYJGdZIAn8QiAn4tOOTLh0nl4eMPrHzi6W3O0De1GoLLag/Bg/XjqGY6dHgC2LABl8dKiAh1d+g0B7HimXdFhEMzBrcg/JaQPLb5zhAGUGk5UsUeESyQsnSlRWKhWVHAsNOm74YjAf+Lph/n7Jz9YBH0uQM0EqOFNMtKqAX0bxsW3AWikYDJUqizIELB0iRLfLfo3Fh1mSE34i6ybIc9da+L4HDXf0uF4kwydB3wriMhrMQQytMHxMNauXXMUD5W1S9q3judUtPP9KGsVFGfT6vFQfbQbXSV74UTwOu4Vb7oKEvAamlxSwfottwDQiGG3NtvBhmpiUtVGE4HWpMRoxR0yZMYAYLiW4aGgVQfIb5NqIK2U/+yIU3o0aPF0YYRTjcdKioUP20NuXIPTT6PUEuhss4+N6Dwvv+oyO7nE89mySxGEelLeOqiN9FcP0lGSwJRAwnDDs057vPHNv8LF+i1sqmaZ5i2LxNvTvdi2GsS0mTTLjVeDuCJdQEmMi/6lowrEIKUAQL1kUDMzIl2pSqalENxAqxa8fMRnHWouqTX9okvw09rD4vs/YvjqL0pJJoF0m6Xbw662buPhscGk0n08Ijde2JoFm0+m0wy2TurC780PzjR3JYNMsNdAYRY4BVsoluIA7I1z2CjGJkdAC3CLm+QcmbTTiuKQcyy2+TJwDPjDFe++Ldh2wKHYHU+x26X8p5v8xMYmRCgM18rXk14R7tiDNXNOYy3B/if1UwgOc6WJa6cdMu+ZSDlXEc6BqFKfqvdhsNopyNa4dUQsdzUy9Zijd/hHYbX4KhwLek7rF9EKC+wzrfpLCwcoRKAJ8dWQ7dLQYLWqOFuVfKhxAljAgXST6JHBILjEW2MXXjQcuk/4piTT3iNz+vxEvexiH/rlKCeMOyx46o7iZcqni+KU9xfHFdVQuzyGRt4SJPssCt0MiCodBDJWISbPE6cHakddUvpcCeUhcukQt7CH+1P93ACptJ/Ou6Uh/AAAAAElFTkSuQmCC"
-                         title="Colg论坛" width="112" height="20">
+                    进军魔界的前夜
                 </a>
-            </div>
-            <div class="collapse navbar-collapse navbar-right" id="main-nav">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">减防算法 <span
-                                class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="#fixed-percentage-item">固定类与百分比类装备</a>
-                            </li>
-                            <li>
-                                <a href="#percentage-item">百分比与百分比类装备</a>
-                            </li>
-                            <li>
-                                <a href="#skill-percentage-item">角色技能与百分比类装备</a>
-                            </li>
-                            <li>
-                                <a href="#skill-skill">角色技能与角色技能</a>
-                            </li>
-                            <li>
-                                <a href="#ignore">无视目标防御</a>
-                            </li>
-                            <li>
-                                <a href="#epilog">结论</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#minimum">减伤率下限</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">相关测试 <span
-                                class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#test">测试条件</a></li>
-                            <li><a href="#test-0">普通安徒恩副本</a></li>
-                            <li><a href="#test-1">暴走安徒恩副本</a></li>
-                            <li><a href="#test-2">普通卢克副本（西海岸版本）</a></li>
-                            <li><a href="#test-3">固定减防类装备</a></li>
-                            <li><a href="#test-4">百分比减防类装备</a></li>
-                            <li><a href="#test-5">无视防御类装备</a></li>
-                            <li><a href="#test-6">结论</a></li>
-                        </ul>
-                </ul>
             </div>
         </div>
     </nav>
     <!--Menu End-->
 </header>
-<!--Banner Start-->
+<!--Content Start-->
 <div class="jumbotron">
-    <div class="container banner">
+    <div class="container">
+        <h1>
+            减防相关问题测试
+            <br>
+            <small style="color: #fff;">COLG首发，未经许可谢绝转载。</small>
+        </h1>
     </div>
 </div>
-<!--Banner End-->
-<!--Content Start-->
-<div class="container">
-    <div id="arithmetic" class="row">
-        <div class="col-md-9 main">
-            <div class="page-header">
-                <h1>COLG首发，未经许可谢绝转载。</h1>
-
-            </div>
+<div class="container-fluid">
+    <div class="row">
+        <article class="col-md-9">
             <section id="preface">
-                <h2 class="text-yellow">前言</h2>
-                <p>继上次减防算法的介绍帖发布后，于国服开放90级版本的前夜，再次发布减伤率下限的测试帖。</p>
-                <br>
-                <p>既是作为上次算法帖的续篇，也是希望能够对大家在90级版本攻略卢克副本、选择合理的配装以及组建默契的团队提供一点小小的帮助。</p>
-                <p>同时也希望此帖能够解答大家关于“减防”、“减伤率下限”等的诸多问题，希望仔细阅读完此帖的沃特碧们能够有所收获。</p>
-                <br>
-                <p>为了保留帖子的连贯性，同时方便查找，此帖前半部分将减防算法的介绍帖的内容进行了复述。已经浏览过的沃特碧可以直接观看后半部分的内容。</p>
-                <br>
-                <p>感谢
-                    <a href="http://bbs.colg.cn/home.php?mod=space&uid=633520">视线的背面</a>
-                    <a href="http://bbs.colg.cn/home.php?mod=space&uid=1051679">凡雪痕</a>
-                    <a href="http://bbs.colg.cn/home.php?mod=space&uid=499326">duanchao1993</a>
-                    <a href="http://bbs.colg.cn/home.php?mod=space&uid=1327425">再见鬼泣 </a>
-                    对于此帖完成提供的帮助，无论是想法的提出、结论的验证，抑或是直接或间接参与相关测试。</p>
-                <br>
-                <br>
-                <br>
-                <h5 class="text-right">
-                    作者：&nbsp;<a href="http://bbs.colg.cn/thread-5633429-1-1.html" title="跳转原文">逝楓_Soultaker</a>
-                    <br>
-                    <br>
-                    <p>2017年1月16日</p>
-                </h5>
-                <br>
+                <div class="page-header">
+                    <h2>前言</h2>
+                </div>
                 <blockquote>
-                    <h4>减防算法</h4>
-                    <p>有效防御值=（原始防御值-固定减防类装备总和）*（1-减防技能1-...-减防技能N）*（1-百分比减防类装备1）*...*（1-百分比减防类装备N）*（1-无视防御装备）</p>
+                    <p>继上次减防算法的介绍帖发布后，于国服开放90级版本的前夜，再次发布减伤率下限的测试帖。</p>
+                    <p>既是作为上次算法帖的续篇，也是希望能够对大家在90级版本攻略卢克副本、选择合理的配装以及组建默契的团队提供一点小小的帮助。</p>
+                    <p>同时也希望此帖能够解答大家关于<q>减防</q>、<q>减伤率下限</q>等的诸多问题，希望仔细阅读完此帖的沃特碧们能够有所收获。</p>
+                    <p>为了保留帖子的连贯性，同时方便查找，此帖前半部分将减防算法的介绍帖的内容进行了复述。已经浏览过的沃特碧可以直接观看后半部分的内容。</p>
+                    <p>
+                        感谢
+                        <a href="http://bbs.colg.cn/home.php?mod=space&uid=633520">@视线的背面</a>
+                        <a href="http://bbs.colg.cn/home.php?mod=space&uid=1051679">@凡雪痕</a>
+                        <a href="http://bbs.colg.cn/home.php?mod=space&uid=499326">@duanchao1993</a>
+                        <a href="http://bbs.colg.cn/home.php?mod=space&uid=1327425">@再见鬼泣 </a>
+                        对于此帖完成提供的帮助，无论是想法的提出、结论的验证，抑或是直接或间接参与相关测试。
+                    </p>
+                    <footer class="text-right">逝楓_Soultaker</footer>
                 </blockquote>
-                <br>
-
+                <div class="panel panel-default">
+                    <div class="panel-heading">减防算法</div>
+                    <div class="panel-body">
+                        有效防御值=（原始防御值-固定减防类装备总和）*（1-减防技能1-...-减防技能N）*（1-百分比减防类装备1）*...*（1-百分比减防类装备N）*（1-无视防御装备）
+                    </div>
+                </div>
             </section>
-            <div id="debuff" class="page-header">
-                <h1>减防算法</h1>
-            </div>
             <section id="fixed-percentage-item" class="clearfix">
-                <h2 class="text-yellow">固定类与百分比类装备</h2>
-                <br>
-                <p class="keywords-strong">固定值类型与百分比类型的装备同时存在时，先计算固定值部分，后计算百分比部分。</p>
-                <table class="table table-bordered bg-black text-center table-striped">
-                    <thead>
-                    <th></th>
-                    <th>虫桩</th>
-                    <th>千蛛衣</th>
-                    <th>千蛛衣+魔剑眼 <span class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
-                                      title="假设先计算固定值">&#xe698;</span></th>
-                    <th>千蛛衣+魔剑眼 <span class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
-                                      title="假设先计算百分比">&#xe698;</span></th>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>防御值</td>
-                        <td>169012</td>
-                        <td>157012</td>
-                        <td>141311</td>
-                        <td>140111</td>
-                    </tr>
-                    <tr>
-                        <td>减伤率</td>
-                        <td>90.76%</td>
-                        <td>90.13%</td>
-                        <td>89.15%</td>
-                        <td>89.07%</td>
-                    </tr>
-                    <tr>
-                        <td>伤害比率</td>
-                        <td>9.24%</td>
-                        <td>9.87%</td>
-                        <td>10.85%</td>
-                        <td>10.93%</td>
-                    </tr>
-                    <tr>
-                        <td>实际伤害-1</td>
-                        <td>36218</td>
-                        <td>38719</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>实际伤害-2</td>
-                        <td>36218</td>
-                        <td>38719</td>
-                        <td>42552</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>模拟伤害</td>
-                        <td>-</td>
-                        <td>38713</td>
-                        <td>42554</td>
-                        <td>42879</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <p>虫桩的原始防御为169012，对应减伤率为90.76%，故伤害比率为9.24%</p>
-                <p>将其设置为中毒状态，攻击并触发<span class="keywords-pink">千蛛上衣</span>的减防效果，此时伤害为36218</p>
-                <br>
-                <p>触发<span class="keywords-pink">千蛛上衣</span>的减防效果后，其防御为169012-12000=157012</p>
-                <p>对应减伤率为90.13%，故伤害比率为9.87%，模拟伤害为38713，与实际伤害38719吻合</p>。
-                <br>
-                <p>佩戴<span class="keywords-pink">阿波菲斯之眼</span>经过5s后，减防光环生效，由此测试两类减防装备的算法：</p>
-                <br>
-                <blockquote>
-                    <h4>若先计算固定值部分</h4>
-                    <p>则计算后防御为（169012-12000）*（1-10%）=141311</p>
-                    <p>对应减伤率为89.15%，故伤害比率为10.85%，模拟伤害为42554</p>
-                </blockquote>
-                <br>
-                <blockquote>
-                    <h4>若先计算百分比部分</h4>
-                    <p>则计算后防御为[169012*（1-10%）]-12000=140111</p>
-                    <p>对应减伤率为89.07%，故伤害比率为10.93%，模拟伤害为42879</p>
-                </blockquote>
-                <br>
-                <p>实际伤害为42552，与先计算固定值部分的模拟伤害42554吻合</p>
-                <p>故固定值类型与百分比类型的装备同时存在时，先计算固定值部分，后计算百分比部分</p>
-                <img class="col-md-4 img-responsive"
-                     src="https://ww3.sinaimg.cn/large/005XcV4Sjw1f9p5h5ehawj30oh0ibgok.jpg">
-                <img class="col-md-4 img-responsive"
-                     src="https://ww2.sinaimg.cn/large/005XcV4Sjw1f9p5h5pvzdj30oh0ibdit.jpg">
-                <img class="col-md-4 img-responsive"
-                     src="https://ww1.sinaimg.cn/large/005XcV4Sjw1f9p5h616a2j30oh0ib779.jpg">
-            </section>
-            <section id="percentage-item" class="clearfix">
-                <h2 class="text-yellow">百分比与百分比类装备</h2>
-                <br>
-                <p class="keywords-strong">百分比类型与百分比类型的装备同时存在时，二者的减防效果为乘算。</p>
-                <table class="table table-bordered bg-black text-center table-striped">
-                    <thead>
-                    <tr>
+                <div class="page-header">
+                    <h2>固定类与百分比类装备</h2>
+                </div>
+                <p>
+                    <strong class="text-primary">固定值类型与百分比类型的装备同时存在时，先计算固定值部分，后计算百分比部分。</strong>
+                </p>
+                <h3>计算过程</h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center table-striped">
+                        <thead>
                         <th></th>
                         <th>虫桩</th>
                         <th>千蛛衣</th>
-                        <th>天劫+魔剑眼 <span class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
-                                         title="假设为加算">&#xe698;</span></th>
-                        <th>天劫+魔剑眼 <span class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
-                                         title="假设为乘算">&#xe698;</span></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>防御值</td>
-                        <td>169012</td>
-                        <td>135210</td>
-                        <td>118308</td>
-                        <td>121689</td>
-                    </tr>
-                    <tr>
-                        <td>减伤率</td>
-                        <td>90.76%</td>
-                        <td>88.71%</td>
-                        <td>87.31%</td>
-                        <td>87.62%</td>
-                    </tr>
-                    <tr>
-                        <td>伤害比率</td>
-                        <td>9.24%</td>
-                        <td>11.29%</td>
-                        <td>12.69%</td>
-                        <td>12.38%</td>
-                    </tr>
-                    <tr>
-                        <td>实际伤害-1</td>
-                        <td></td>
-                        <td>95737</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>实际伤害-2</td>
-                        <td></td>
-                        <td></td>
-                        <td colspan="2">105058</td>
-                    </tr>
-                    <tr>
-                        <td>模拟伤害</td>
-                        <td></td>
-                        <td></td>
-                        <td>107678</td>
-                        <td>105057</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <p>虫桩的原始防御为169012，<span class="keywords-pink">天劫套</span>具有半径为300px的20%魔防削减光环</p>
-                <p>故此时其防御为169012*（1-20%）=135210，对应减伤率为88.71%，故伤害比率为11.29%</p>
+                        <th>千蛛衣+魔剑眼 <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip"
+                                          data-placement="top"
+                                          title="假设先计算固定值"></span></th>
+                        <th>千蛛衣+魔剑眼 <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip"
+                                          data-placement="top"
+                                          title="假设先计算百分比"></span></th>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>防御值</td>
+                            <td>169012</td>
+                            <td>157012</td>
+                            <td>141311</td>
+                            <td>140111</td>
+                        </tr>
+                        <tr>
+                            <td>减伤率</td>
+                            <td>90.76%</td>
+                            <td>90.13%</td>
+                            <td>89.15%</td>
+                            <td>89.07%</td>
+                        </tr>
+                        <tr>
+                            <td>伤害比率</td>
+                            <td>9.24%</td>
+                            <td>9.87%</td>
+                            <td>10.85%</td>
+                            <td>10.93%</td>
+                        </tr>
+                        <tr>
+                            <td>实际伤害-1</td>
+                            <td>36218</td>
+                            <td>38719</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>实际伤害-2</td>
+                            <td>36218</td>
+                            <td>38719</td>
+                            <td>42552</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>模拟伤害</td>
+                            <td>-</td>
+                            <td>38713</td>
+                            <td>42554</td>
+                            <td>42879</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>虫桩的原始防御为169012，对应减伤率为90.76%，故伤害比率为9.24%</p>
+                <p>将其设置为中毒状态，攻击并触发千蛛上衣的减防效果，此时伤害为36218</p>
+                <p>触发<span class="item">千蛛上衣</span>的减防效果后，其防御为
+                    <mark>169012-12000=157012</mark>
+                </p>
+                <p><strong class="text-success">对应减伤率为90.13%，故伤害比率为9.87%，模拟伤害为38713，与实际伤害38719吻合。</strong></p>
                 <br>
-                <p>佩戴<span class="keywords-pink">阿波菲斯之眼</span>经过5s后，减防光环生效，由此测试两类减防装备的算法：</p>
+                <p><strong>佩戴<span class="item">阿波菲斯之眼</span>经过5s后，减防光环生效，由此测试两类减防装备的算法：</strong></p>
+                <div class="panel panel-default">
+                    <div class="panel-heading">假设先计算固定值部分</div>
+                    <div class="panel-body">
+                        <p>
+                            计算后防御为
+                            <mark>（169012-12000）*（1-10%）=141311</mark>
+                        </p>
+                        <p>对应减伤率为89.15%，故伤害比率为10.85%，模拟伤害为42554</p>
+                    </div>
+                </div>
 
-                <blockquote>
-                    <h4>若二者为加算算法</h4>
-                    <p>则计算后防御为169012*（1-20%-10%）=118308</p>
-                    <p>对应减伤率为87.31%，故伤害比率为12.69%，模拟伤害为107678。</p>
-                </blockquote>
+                <div class="panel panel-default">
+                    <div class="panel-heading">假设先计算百分比部分</div>
+                    <div class="panel-body">
+                        <p>
+                            计算后防御为
+                            <mark>[169012*（1-10%）]-12000=140111</mark>
+                        </p>
+                        <p>对应减伤率为89.07%，故伤害比率为10.93%，模拟伤害为42879</p></div>
+                </div>
+
+                <p><strong class="text-success">实际伤害为42552，与先计算固定值部分的模拟伤害42554吻合</strong></p>
+                <p>
+                    <strong class="text-danger">故固定值类型与百分比类型的装备同时存在时，先计算固定值部分，后计算百分比部分</strong>
+                </p>
+            </section>
+            <section id="percentage-item" class="clearfix">
+                <div class="page-header">
+                    <h2>百分比与百分比类装备</h2>
+                </div>
+                <p>
+                    <strong class="text-primary">百分比类型与百分比类型的装备同时存在时，二者的减防效果为乘算。</strong>
+                </p>
+                <h3>计算过程</h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center table-striped">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>虫桩</th>
+                            <th>千蛛衣</th>
+                            <th>天劫+魔剑眼 <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip"
+                                             data-placement="top"
+                                             title="假设为加算"></span></th>
+                            <th>天劫+魔剑眼 <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip"
+                                             data-placement="top"
+                                             title="假设为乘算"></span></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>防御值</td>
+                            <td>169012</td>
+                            <td>135210</td>
+                            <td>118308</td>
+                            <td>121689</td>
+                        </tr>
+                        <tr>
+                            <td>减伤率</td>
+                            <td>90.76%</td>
+                            <td>88.71%</td>
+                            <td>87.31%</td>
+                            <td>87.62%</td>
+                        </tr>
+                        <tr>
+                            <td>伤害比率</td>
+                            <td>9.24%</td>
+                            <td>11.29%</td>
+                            <td>12.69%</td>
+                            <td>12.38%</td>
+                        </tr>
+                        <tr>
+                            <td>实际伤害-1</td>
+                            <td></td>
+                            <td>95737</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>实际伤害-2</td>
+                            <td></td>
+                            <td></td>
+                            <td colspan="2">105058</td>
+                        </tr>
+                        <tr>
+                            <td>模拟伤害</td>
+                            <td></td>
+                            <td></td>
+                            <td>107678</td>
+                            <td>105057</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>虫桩的原始防御为169012，<span class="item">天劫套</span>具有半径为300px的20%魔防削减光环</p>
+                <p>故此时其防御为
+                    <mark>169012*（1-20%）=135210</mark>
+                    ，对应减伤率为88.71%，故伤害比率为11.29%
+                </p>
                 <br>
-                <blockquote>
-                    <h4>若二者为乘算算法</h4>
-                    <p>则计算后防御为169012*（1-20%）*（1-10%）=121689</p>
-                    <p>对应减伤率为87.62%，故伤害比率为12.38%，模拟伤害为105057。</p>
-                </blockquote>
-                <br>
-                <p>实际伤害为105058，与二者为乘算算法的模拟伤害105057吻合。</p>
-                <p>故百分比类型与百分比类型的装备同时存在时，二者的减防效果为乘算。</p>
+                <p><strong>佩戴<span class="item">阿波菲斯之眼</span>经过5s后，减防光环生效，由此测试两类减防装备的算法：</strong></p>
+                <div class="panel panel-default">
+                    <div class="panel-heading">假设二者为加算算法</div>
+                    <div class="panel-body">
+                        <p>
+                            则计算后防御为
+                            <mark>169012*（1-20%-10%）=118308</mark>
+                        </p>
+                        <p>对应减伤率为87.31%，故伤害比率为12.69%，模拟伤害为107678。</p></div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">若二者为乘算算法</div>
+                    <div class="panel-body">
+                        <p>则计算后防御为
+                            <mark>169012*（1-20%）*（1-10%）=121689</mark>
+                        </p>
+                        <p>对应减伤率为87.62%，故伤害比率为12.38%，模拟伤害为105057。</p></div>
+                </div>
+                <p><strong class="text-success">实际伤害为105058，与二者为乘算算法的模拟伤害105057吻合。</strong></p>
+                <p><strong class="text-danger">故百分比类型与百分比类型的装备同时存在时，二者的减防效果为乘算。</strong></p>
             </section>
             <section id="skill-percentage-item" class="clearfix">
-                <h2 class="text-yellow">角色技能与百分比类装备</h2>
-                <p class="keywords-strong">角色技能与百分比类型的装备同时存在时，二者的减防效果为乘算。</p>
-                <img class="img-responsive visible-xs"
-                     src="https://ww3.sinaimg.cn/large/005XcV4Sjw1f9p64pgyvpj30k508l74z.jpg">
-                <table class="table table-bordered bg-black text-center table-striped hidden-xs">
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th>虫桩</th>
-                        <th>天劫</th>
-                        <th>天劫+魔剑眼</th>
-                        <th>天劫+魔剑眼</th>
-                        <th>天劫+魔剑眼+漩涡</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>防御值</td>
-                        <td>169012</td>
-                        <td>135210</td>
-                        <td>118308</td>
-                        <td>121689</td>
-                        <td>91145</td>
-                    </tr>
-                    <tr>
-                        <td>减伤率</td>
-                        <td>90.76%</td>
-                        <td>88.71%</td>
-                        <td>87.31%</td>
-                        <td>87.62%</td>
-                        <td>84.12%</td>
-                    </tr>
-                    <tr>
-                        <td>减伤比率</td>
-                        <td>9.24%</td>
-                        <td>11.29%</td>
-                        <td>12.69%</td>
-                        <td>12.38%</td>
-                        <td>15.88%</td>
-                    </tr>
-                    <tr>
-                        <td>实际伤害-1</td>
-                        <td></td>
-                        <td>95737</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>实际伤害-2</td>
-                        <td></td>
-                        <td></td>
-                        <td colspan="2">105058</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>模拟伤害</td>
-                        <td></td>
-                        <td></td>
-                        <td>107678</td>
-                        <td>105057</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>实际伤害-1</td>
-                        <td></td>
-                        <td>95731</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>实际伤害-2</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>134673</td>
-                    </tr>
-                    <tr>
-                        <td>实际伤害-3</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>134655</td>
-                    </tr>
-                    <tr>
-                        <td>模拟伤害</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>134666</td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div class="page-header">
+                    <h2>角色技能与百分比类装备</h2>
+                </div>
+                <p><strong class="text-primary">角色技能与百分比类型的装备同时存在时，二者的减防效果为乘算。</strong></p>
+                <h3>计算过程</h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center table-striped">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>虫桩</th>
+                            <th>天劫</th>
+                            <th>天劫+魔剑眼</th>
+                            <th>天劫+魔剑眼</th>
+                            <th>天劫+魔剑眼+漩涡</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>防御值</td>
+                            <td>169012</td>
+                            <td>135210</td>
+                            <td>118308</td>
+                            <td>121689</td>
+                            <td>91145</td>
+                        </tr>
+                        <tr>
+                            <td>减伤率</td>
+                            <td>90.76%</td>
+                            <td>88.71%</td>
+                            <td>87.31%</td>
+                            <td>87.62%</td>
+                            <td>84.12%</td>
+                        </tr>
+                        <tr>
+                            <td>减伤比率</td>
+                            <td>9.24%</td>
+                            <td>11.29%</td>
+                            <td>12.69%</td>
+                            <td>12.38%</td>
+                            <td>15.88%</td>
+                        </tr>
+                        <tr>
+                            <td>实际伤害-1</td>
+                            <td></td>
+                            <td>95737</td>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td>实际伤害-2</td>
+                            <td colspan="2"></td>
+                            <td colspan="2">105058</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>模拟伤害</td>
+                            <td colspan="2"></td>
+                            <td>107678</td>
+                            <td>105057</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>实际伤害-1</td>
+                            <td></td>
+                            <td>95731</td>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td>实际伤害-2</td>
+                            <td colspan="4"></td>
+                            <td>134673</td>
+                        </tr>
+                        <tr>
+                            <td>实际伤害-3</td>
+                            <td colspan="4"></td>
+                            <td>134655</td>
+                        </tr>
+                        <tr>
+                            <td>模拟伤害</td>
+                            <td colspan="4"></td>
+                            <td>134666</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <p>基于上一次测试的结果，现已知百分比类型与百分比类型的装备同时存在时，二者的减防效果为乘算。</p>
-                <p>引入角色减防技能<span class="keywords-green">暗影漩涡<b class="iconfont text-danger" data-toggle="tooltip"
-                                                               data-placement="top"
-                                                               title="Lv41：减防比率为25.1%">&#xe698;</b></span>，由此测试两类减防方式的算法：
+                <p>引入角色减防技能<span class="skill">暗影漩涡<b class="glyphicon glyphicon-question-sign" data-toggle="tooltip"
+                                                      data-placement="top"
+                                                      title="Lv41：减防比率为25.1%"></b></span>，由此测试两类减防方式的算法：
                 </p>
-                <br>
-                <blockquote>
-                    <h4>若二者为加算算法（表格中未体现）</h4>
-                    <p>则计算后防御为169012*{1-[1-（1-20%）*（1-10%）]-25.1%}=79267，</p>
-                    <p>对应减伤率为82.17%，故伤害比率为17.83%，模拟伤害为151185。</p>
-                </blockquote>
-                <br>
-                <blockquote>
-                    <h4>若二者为乘算算法</h4>
-                    <p>则计算后防御为169012*（1-20%）*（1-10%）*（1-25.1%）=91145，</p>
-                    <p>对应减伤率为84.12%，故伤害比率为15.88%，模拟伤害为134666。</p>
-                </blockquote>
-                <br>
-                <p>实际伤害为134673/134655，其平均值为134664，与二者为乘算算法的模拟伤害134666吻合。</p>
-                <p>故角色技能与百分比类型的装备同时存在时，二者的减防效果为乘算。</p>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">若二者为加算算法（表格中未体现）</div>
+                    <div class="panel-body">
+                        <p>则计算后防御为
+                            <mark>169012*{1-[1-（1-20%）*（1-10%）]-25.1%}=79267</mark>
+                        </p>
+                        <p>对应减伤率为82.17%，故伤害比率为17.83%，模拟伤害为151185。</p></div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">若二者为乘算算法</div>
+                    <div class="panel-body">
+                        <p>则计算后防御为
+                            <mark>169012*（1-20%）*（1-10%）*（1-25.1%）=91145</mark>
+                        </p>
+                        <p>对应减伤率为84.12%，故伤害比率为15.88%，模拟伤害为134666。</p></div>
+                </div>
+                <p><strong class="text-success">实际伤害为134673/134655，其平均值为134664，与二者为乘算算法的模拟伤害134666吻合。</strong></p>
+                <p><strong class="text-danger">故角色技能与百分比类型的装备同时存在时，二者的减防效果为乘算。</strong></p>
             </section>
             <section id="skill-skill" class="clearfix">
-                <h2 class="text-yellow">角色技能与角色技能</h2>
-                <p class="keywords-strong">不同的角色技能同时存在时，二者的减防效果为加算。</p>
-                <table class="table table-bordered bg-black text-center table-striped">
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th>虫桩</th>
-                        <th>天劫<span class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
-                                    title="已知为乘算">&#xe698;</span> +绿阵
-                        </th>
-                        <th>天劫<span class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
-                                    title="已知为乘算">&#xe698;
-                            </span>+绿阵+漩涡<span class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
-                                               title="假设为加算">&#xe698;</span></th>
-                        <th>天劫<span class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
-                                    title="已知为乘算">&#xe698;
-                            </span>+绿阵+漩涡<span class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
-                                               title="假设为乘算">&#xe698;</span></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>防御值</td>
-                        <td>169012</td>
-                        <td>93295</td>
-                        <td>59357</td>
-                        <td>69878</td>
-                    </tr>
-                    <tr>
-                        <td>减伤率</td>
-                        <td>90.76%</td>
-                        <td>84.43%</td>
-                        <td>77.53%</td>
-                        <td>80.25%</td>
-                    </tr>
-                    <tr>
-                        <td>减伤比率</td>
-                        <td>9.24%</td>
-                        <td>15.57%</td>
-                        <td>22.47%</td>
-                        <td>19.75%</td>
-                    </tr>
-                    <tr>
-                        <td>实际伤害-1</td>
-                        <td></td>
-                        <td>117387</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>实际伤害-2</td>
-                        <td></td>
-                        <td></td>
-                        <td colspan="2">169402</td>
-                    </tr>
-                    <tr>
-                        <td>模拟伤害</td>
-                        <td></td>
-                        <td></td>
-                        <td>169424</td>
-                        <td>148955</td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div class="page-header">
+                    <h2>角色技能与角色技能</h2>
+                </div>
+                <p><strong class="text-primary">不同的角色技能同时存在时，二者的减防效果为加算。</strong></p>
+                <h3>计算过程</h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered bg-black text-center table-striped">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>虫桩</th>
+                            <th>天劫<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip"
+                                        data-placement="top"
+                                        title="已知为乘算"></span> +绿阵
+                            </th>
+                            <th>天劫<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip"
+                                        data-placement="top"
+                                        title="已知为乘算">
+                            </span>+绿阵+漩涡<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip"
+                                               data-placement="top"
+                                               title="假设为加算"></span></th>
+                            <th>天劫<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip"
+                                        data-placement="top"
+                                        title="已知为乘算">
+                            </span>+绿阵+漩涡<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip"
+                                               data-placement="top"
+                                               title="假设为乘算"></span></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>防御值</td>
+                            <td>169012</td>
+                            <td>93295</td>
+                            <td>59357</td>
+                            <td>69878</td>
+                        </tr>
+                        <tr>
+                            <td>减伤率</td>
+                            <td>90.76%</td>
+                            <td>84.43%</td>
+                            <td>77.53%</td>
+                            <td>80.25%</td>
+                        </tr>
+                        <tr>
+                            <td>减伤比率</td>
+                            <td>9.24%</td>
+                            <td>15.57%</td>
+                            <td>22.47%</td>
+                            <td>19.75%</td>
+                        </tr>
+                        <tr>
+                            <td>实际伤害-1</td>
+                            <td></td>
+                            <td>117387</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>实际伤害-2</td>
+                            <td></td>
+                            <td></td>
+                            <td colspan="2">169402</td>
+                        </tr>
+                        <tr>
+                            <td>模拟伤害</td>
+                            <td></td>
+                            <td></td>
+                            <td>169424</td>
+                            <td>148955</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <p>基于上一次测试的结果，现已知角色技能与百分比类型的装备同时存在时，二者的减防效果为乘算</p>
                 <p>现已有
-                    <span class="keywords-pink">天劫套装
-                				<b class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
-                                   title="魔防削减光环，减防比率为20%">&#xe6a8;</b>
+                    <span class="item">天劫套装
+                				<b class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="top"
+                                   title="魔防削减光环，减防比率为20%"></b>
                 			</span>与角色减防技能
-                    <span class="keywords-green">侵蚀之普戾蒙
-                				<b class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
-                                   title="Lv29：减防比率为31%">&#xe698;</b>
+                    <span class="skill">侵蚀之普戾蒙
+                				<b class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="top"
+                                   title="Lv29：减防比率为31%"></b>
                             </span>
                 </p>
-                <p>故此时其防御为169012*（1-20%）*（1-31%）=93295，对应减伤率为84.43%，故伤害比率为15.57%，此时伤害为117387</p>
-                <br>
+                <p>故此时其防御为
+                    <mark>169012*（1-20%）*（1-31%）=93295</mark>
+                    ，对应减伤率为84.43%，故伤害比率为15.57%，此时伤害为117387
+                </p>
+
                 <p>引入另一个角色减防技能
-                    <span class="keywords-green">暗影漩涡
-								<b class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
-                                   title="Lv41：减防比率为25.1%">&#xe698;</b>
+                    <span class="skill">暗影漩涡
+								<b class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="top"
+                                   title="Lv41：减防比率为25.1%"></b>
 							</span>，由此测试两个减防技能的算法：
                 </p>
-                <br>
-                <blockquote>
-                    <h4>若二者为加算算法</h4>
-                    <p>则计算后防御为169012*（1-20%）*（1-31%-25.1%）=59357</p>
-                    <p>对应减伤率为77.53%，故伤害比率为22.47%，模拟伤害为169424</p>
-                </blockquote>
-                <br>
-                <blockquote>
-                    <h4>若二者为乘算算法</h4>
-                    <p>则计算后防御为169012*（1-20%）*（1-31%）*（1-25.1%）=69878</p>
-                    <p>对应减伤率为80.25%，故伤害比率为19.75%，模拟伤害为148955</p>
-                </blockquote>
-                <br>
-                <p>实际伤害为169402，与二者为加算算法的模拟伤害169424吻合</p>
-                <p>故不同的角色技能同时存在时，二者的减防效果为加算</p>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">若二者为加算算法</div>
+                    <div class="panel-body"><p>则计算后防御为169012*（1-20%）*（1-31%-25.1%）=59357</p>
+                        <p>对应减伤率为77.53%，故伤害比率为22.47%，模拟伤害为169424</p></div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">若二者为乘算算法</div>
+                    <div class="panel-body"><p>则计算后防御为169012*（1-20%）*（1-31%）*（1-25.1%）=69878</p>
+                        <p>对应减伤率为80.25%，故伤害比率为19.75%，模拟伤害为148955</p></div>
+                </div>
+
+                <p><strong class="text-success">实际伤害为169402，与二者为加算算法的模拟伤害169424吻合</strong></p>
+                <p><strong class="text-danger">故不同的角色技能同时存在时，二者的减防效果为加算</strong></p>
             </section>
             <section id="ignore" class="clearfix">
-                <h2 class="text-yellow">无视目标防御</h2>
-                <p class="keywords-strong">“无视目标防御”为90版本新增史诗装备中出现的属性，即无视攻击目标一定比率的防御</p>
+                <div class="page-header">
+                    <h2>无视目标防御</h2>
+                </div>
+                <p><strong class="text-primary"><q>无视目标防御</q>为90版本新增史诗装备中出现的属性，即无视攻击目标一定比率的防御</strong></p>
                 <p>典型装备为90级史诗太刀-
-                    <span class="keywords-pink">妖刀-村正
-                		<b class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="无视目标20%的防御">&#xe6a8;</b>
+                    <span class="item">妖刀-村正
+                		<b class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="top"
+                           title="无视目标20%的防御"></b>
                 	</span>、 90级史诗扫把-
-                    <span class="keywords-pink">缚狼锁-Gleipnir
-                		<b class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="无视目标25%的防御">&#xe6a8;</b>
+                    <span class="item">缚狼锁-Gleipnir
+                		<b class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="top"
+                           title="无视目标25%的防御"></b>
                 	</span>、 90级史诗板甲上衣-
-                    <span class="keywords-pink">傲慢的自满之眼
-                		<b class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
-                           title="700px内存在敌人时，无视目标15%的防御">&#xe6a8;</b>
+                    <span class="item">傲慢的自满之眼
+                		<b class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="top"
+                           title="700px内存在敌人时，无视目标15%的防御"></b>
                 	</span></p>
-                <br>
-                <h4 class="text-orange">其大体算法与百分比类型的减防装备相同：</h4>
-                <ol class="text-list">
-                    <li>在固定值类型的减防装备之后计算</li>
-                    <li>与百分比类型的减防装备乘算</li>
-                    <li>与角色的减防技能乘算</li>
-                    <li>计算结果不会超过副本的减伤率下限</li>
-                </ol>
-                <h4 class="text-orange">同时也存在一些不同之处：</h4>
-                <ol class="text-list">
-                    <li>不会因为怪物类型（精英、稀有、领主）而收到惩罚减益</li>
-                    <li> 同类型装备效果无法叠加，取最高值</li>
-                    <li>仅佩戴该类型装备的角色可以享受</li>
-                </ol>
-                <img class="img-responsive" src="https://ww3.sinaimg.cn/mw690/005XcV4Sjw1f9p8i4ikuqj30et065glx.jpg">
-                <br>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">其大体算法与百分比类型的减防装备相同</div>
+                    <div class="panel-body">
+                        <ol >
+                            <li>在固定值类型的减防装备之后计算</li>
+                            <li>与百分比类型的减防装备乘算</li>
+                            <li>与角色的减防技能乘算</li>
+                            <li>计算结果不会超过副本的减伤率下限</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="panel panel-danger">
+                    <div class="panel-heading">同时也存在一些不同之处</div>
+                    <div class="panel-body">
+                        <ol>
+                            <li>不会因为怪物类型（精英、稀有、领主）而收到惩罚减益</li>
+                            <li> 同类型装备效果无法叠加，取最高值</li>
+                            <li>仅佩戴该类型装备的角色可以享受</li>
+                        </ol>
+                    </div>
+                </div>
+                <h3>计算过程</h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered bg-black text-center table-striped">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>虫桩</th>
+                            <th>妖刀</th>
+                            <th>
+                                妖刀+漩涡
+                                <b class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="top"
+                                   title="假设为加算"></b>
+                            </th>
+                            <th>
+                                妖刀+漩涡
+                                <b class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="top"
+                                   title="假设为乘算"></b>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>防御力</td>
+                            <td>169012</td>
+                            <td>135210</td>
+                            <td>93971</td>
+                            <td>102218</td>
+                        </tr>
+                        <tr>
+                            <td>减伤率</td>
+                            <td>90.37%</td>
+                            <td>88.25%</td>
+                            <td>83.92%</td>
+                            <td>85.03%</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <p>换算后的减伤率与前文不同是因为角色等级不同所致</p>
-                <br>
                 <p>测试角色为佩戴
-                    <span class="keywords-pink">
+                    <span class="item">
                         妖刀-村正
-                        <b class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="无视目标20%的防御">&#xe6a8;</b>
+                        <b class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="top"
+                           title="无视目标20%的防御"></b>
                     </span> 的90级暗帝
                 </p>
-                <br>
+
                 <p>虫桩的原始防御为169012，由于角色佩戴
-                    <span class="keywords-pink">
+                    <span class="item">
                         妖刀-村正
-                        <b class="iconfont text-danger" data-toggle="tooltip" data-placement="top" title="无视目标20%的防御">&#xe6a8;</b>
+                        <b class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="top"
+                           title="无视目标20%的防御"></b>
                     </span>，故有效防御为169012*（1-20%）=135210。 对应减伤率为88.25%，故伤害比率为11.75%，此时伤害为255055
                 </p>
 
                 <p>引入角色减防技能
-                    <span class="keywords-green">
+                    <span class="skill">
                         暗影漩涡
-                        <b class="iconfont text-danger" data-toggle="tooltip" data-placement="top"
-                           title="Lv40：减防比率为24.4%">&#xe698;</b>
+                        <b class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="top"
+                           title="Lv40：减防比率为24.4%"></b>
                     </span> ，由此测试两类减防方式的算法：
                 </p>
-                <br>
 
-                <blockquote>
-                    <h4>若二者为加算算法</h4>
-                    <p>则计算后防御为<i>169012*（1-20%-24.4%）=93971</i></p>
-                    <p>对应减伤率为83.92%，故伤害比率为16.08%，模拟伤害为339598</p>
-                    <br>
-                </blockquote>
 
-                <blockquote>
-                    <h4>若二者为乘算算法</h4>
-                    <p>则计算后防御为<i>169012*（1-20%）*（1-24.4%）=102218</i></p>
-                    <p>对应减伤率为85.03%，故伤害比率为14.97%，模拟伤害为318049</p>
-                    <br>
-                    <p>实际伤害为316690，与二者为乘算算法的模拟伤害318049更为接近</p>
-                    <p>由于测试角色的武器已强化，故对计算结果进行了无视部分的校正</p>
-                    <p>虽然仍存在一定误差，但不影响结论的得出</p>
-                    <br>
-                </blockquote>
+                <div class="panel panel-default">
+                    <div class="panel-heading">若二者为加算算法</div>
+                    <div class="panel-body">
+                        <p>则计算后防御为<i>169012*（1-20%-24.4%）=93971</i></p>
+                        <p>对应减伤率为83.92%，故伤害比率为16.08%，模拟伤害为339598</p>
+                    </div>
+                </div>
 
-                <h4 class="text-orange">故无视目标防御类型的装备与百分比类型的减防装备的大体算法相同</h4>
-                <ol class="text-list">
-                    <li>在固定值类型的减防装备之后计算</li>
-                    <li>与百分比类型的减防装备乘算</li>
-                    <li>与角色的减防技能乘算</li>
-                    <li>计算结果不会超过副本的减伤率下限</li>
-                </ol>
+                <div class="panel panel-default">
+                    <div class="panel-heading">若二者为乘算算法</div>
+                    <div class="panel-body">
+                        <p>则计算后防御为<i>169012*（1-20%）*（1-24.4%）=102218</i></p>
+                        <p>对应减伤率为85.03%，故伤害比率为14.97%，模拟伤害为318049</p>
 
-                <h4 class="text-orange">同时也存在一些不同之处</h4>
-                <ol class="text-list">
-                    <li>不会因为怪物类型（精英、稀有、领主）而收到惩罚减益</li>
-                    <li>同类型装备效果无法叠加，取最高值</li>
-                    <li>仅佩戴该类型装备的角色可以享受</li>
-                </ol>
-                <img class="col-md-6 img-responsive"
-                     src="https://ww2.sinaimg.cn/mw690/005XcV4Sjw1f9p8i46qu2j30go0cidgu.jpg">
-                <img class="col-md-6 img-responsive"
-                     src="https://ww4.sinaimg.cn/mw690/005XcV4Sjw1f9p8i3yntaj30go0cijsi.jpg">
+                        <p>实际伤害为316690，与二者为乘算算法的模拟伤害318049更为接近</p>
+                        <p>由于测试角色的武器已强化，故对计算结果进行了无视部分的校正</p>
+                        <p>虽然仍存在一定误差，但不影响结论的得出</p>
+                    </div>
+                </div>
             </section>
             <section id="epilog" class="clearfix">
-                <h2 class="text-yellow">结论</h2>
-                <blockquote>
-                    有效防御值=（原始防御值-固定减防类装备总和）*（1-减防技能1-...-减防技能N）*（1-百分比减防类装备1）*...*（1-百分比减防类装备N）*（1-无视防御装备）
-                </blockquote>
-                <br>
-                <h4 class="text-orange">不同减防间叠加算法</h4>
-                <ol class="text-list">
-                    <li>固定值类型与百分比类型的装备同时存在时，先计算固定值部分，后计算百分比部分</li>
-                    <li>百分比类型与百分比类型的装备同时存在时，二者的减防效果为乘算</li>
-                    <li>角色技能与百分比类型的装备同时存在时，二者的减防效果为乘算。</li>
-                    <li>不同的角色技能同时存在时，二者的减防效果为加算。</li>
-                    <li>
-                        无视目标防御类型的装备与百分比类型的减防装备的大体算法相同（见上），同时也存在一些不同之处：
-                        <ol>
-                            <li>不会因为怪物类型（精英、稀有、领主）而收到惩罚减益</li>
-                            <li>同类型装备效果无法叠加，取最高值</li>
-                            <li>仅佩戴该类型装备的角色可以享受。</li>
+                <div class="page-header">
+                    <h2>结论</h2>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        有效防御值=（原始防御值-固定减防类装备总和）*（1-减防技能1-...-减防技能N）*（1-百分比减防类装备1）*...*（1-百分比减防类装备N）*（1-无视防御装备）
+                    </div>
+                </div>
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">不同减防间叠加算法</div>
+                    <div class="panel-body">
+                        <ol >
+                            <li>固定值类型与百分比类型的装备同时存在时，先计算固定值部分，后计算百分比部分</li>
+                            <li>百分比类型与百分比类型的装备同时存在时，二者的减防效果为乘算</li>
+                            <li>角色技能与百分比类型的装备同时存在时，二者的减防效果为乘算。</li>
+                            <li>不同的角色技能同时存在时，二者的减防效果为加算。</li>
+                            <li>
+                                无视目标防御类型的装备与百分比类型的减防装备的大体算法相同（见上），同时也存在一些不同之处：
+                                <ul>
+                                    <li>不会因为怪物类型（精英、稀有、领主）而收到惩罚减益</li>
+                                    <li>同类型装备效果无法叠加，取最高值</li>
+                                    <li>仅佩戴该类型装备的角色可以享受。</li>
+                                </ul>
+                            </li>
                         </ol>
-                    </li>
-                </ol>
+                    </div>
+                </div>
             </section>
             <section id="minimum">
                 <div class="page-header">
-                    <h1>减伤率下限</h1>
+                    <h2>减伤率下限</h2>
                 </div>
-                <p> “减伤率下限”是针对DNF中部分副本设置的特殊系统，旨在防止因减防类技能、道具以及召唤兽等级等的过度堆叠而导致副本难度急剧下滑</p>
-                <br>
+                <p><q>减伤率下限</q>是针对DNF中部分副本设置的特殊系统，旨在防止因减防类技能、道具以及召唤兽等级等的过度堆叠而导致副本难度急剧下滑</p>
                 <p>目前已知具有“减伤率下限”系统的副本包括<span class="keywords-purple">普通安徒恩副本</span>、<span class="keywords-purple">团队安徒恩副本</span>、<span
                         class="keywords-purple">暴走安徒恩副本</span>和<span class="keywords-purple">普通卢克副本</span>（团队卢克副本国服暂时未开放）
                 </p>
                 <p>由于“减伤率下限”系统的存在，以上副本的怪物在减伤率达到一定限度后不会再下降</p>
                 <p>不同类副本的减伤率下限也存在差异</p>
-                <br>
-                <blockquote>
-                    <h4>减伤率的计算公式：</h4>
-                    <p>减伤率=怪物防御值/（怪物防御值+攻击方等级*200）</p>
-                </blockquote>
-                <dl>
-                    <h4 class="text-orange">因此能够影响减伤率的因素有两个</h4>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">减伤率的计算公式</div>
+                    <div class="panel-body">
+                        <p>减伤率=怪物防御值/（怪物防御值+攻击方等级*200）</p>
+                    </div>
+                </div>
+                <dl class="well well-sm">
+                    <h3>因此能够影响减伤率的因素有两个</h3>
                     <dd>
                         <h5>1、怪物防御值</h5>
                         <p>怪物防御值自身也具有固定的计算公式：怪物防御值=怪物等级*（怪物等级+1）*怪物防御系数*版本防御系数*副本难度系数，在此不过多展开。
@@ -662,9 +698,7 @@
                         </p>
                     </dd>
                 </dl>
-                <br>
                 <p>若攻击方等级固定，则可以根据减伤率下限推算出该副本中怪物的防御值下限，从而对团队职业组成和个人装备构建进行指导。</p>
-                <br>
                 <p>如何证明设置下限的是减伤率而不是防御值？可以参照
                     <a href="http://bbs.colg.cn/home.php?mod=space&uid=1051679">凡雪痕</a>
                     对于<span class="keywords-purple">暴走安徒恩</span>的减伤率下限的
@@ -672,51 +706,49 @@
                 </p>
                 <p>其测试（采用90级角色）和此帖的测试（采用86级角色）得出的减伤率下限基本一致，故可以证明设置下限的是减伤率而不是防御值</p>
             </section>
-            <div id="tests" class="page-header">
-                <h1>相关测试</h1>
-            </div>
             <section id="test">
-                <h2 class="text-yellow">测试条件</h2>
-                <p>选取86级暗殿骑士角色（卢克部分为90级暗殿骑士角色）和90级鬼泣角色进行测试，前者提供减防类技能、道具和伤害来源，后者提供减防类技能</p>
-                <br>
+                <div class="page-header">
+                    <h2>测试条件</h2>
+                </div>
+                <p>选取86级暗殿骑士角色（<span class="text-primary">卢克部分为90级暗殿骑士角色</span>）和90级鬼泣角色进行测试，前者提供减防类技能、道具和伤害来源，后者提供减防类技能</p>
+
                 <dl>
-                    <dt>减防类道具</dt>
+                    <dt class="text-primary">减防类道具</dt>
                     <dd>
-                        <p>
+                        <div>
                             固定类减防道具：
-                            <span class="keywords-pink">
+                            <span class="item">
                             千蛛碎影之毒牙胸甲
-                                <span class="iconfont text-danger" data-toggle="tooltip"
-                                      data-placement="top" title="减少12000防御">&#xe698;</span>
+                                <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip"
+                                      data-placement="top" title="减少12000防御"></span>
                             </span>
-                        </p>
-                        <p>
+                        </div>
+                        <div>
                             百分比类减防道具：
-                            <span class="keywords-pink">
+                            <span class="item">
                             天劫
-                                 <span class="iconfont text-danger" data-toggle="tooltip"
-                                       data-placement="top" title="套装光环：减少20%魔防">&#xe698;</span>
+                                 <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip"
+                                       data-placement="top" title="套装光环：减少20%魔防"></span>
                             </span>
-                        </p>
+                        </div>
                     </dd>
-                    <dt>伤害来源</dt>
+                    <dt class="text-primary">伤害来源</dt>
                     <dd>
                         暗殿骑士：
-                        <span class="keywords-green">
+                        <span class="skill">
                         浮空击
-                            <span class="iconfont text-danger" data-toggle="tooltip"
-                                  data-placement="top" title="转职前技能">&#xe698;</span>
+                            <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip"
+                                  data-placement="top" title="转职前技能"></span>
                          </span>
                     </dd>
-                    <br>
-                    <h4 class="text-orange">为确保测试的结论真实准确，通过特定手段排除以下干扰因素</h4>
-                    <dt>无视攻击力的干扰：</dt>
+                    <h3>为确保测试的结论真实准确，通过特定手段排除以下干扰因素</h3>
+                    <dt class="text-danger">无视攻击力的干扰：</dt>
                     <dd>使用未强化/增幅的武器，无视攻击力为0</dd>
-                    <dt>属强/属抗的干扰：</dt>
+                    <dt class="text-danger">属强/属抗的干扰：</dt>
                     <dd>使用不具有属性攻击的武器和输出技能，伤害结果与属强/属抗无关</dd>
-                    <dt>主动/被动Buff的干扰：</dt>
+                    <dt class="text-danger">主动/被动Buff的干扰：</dt>
                     <dd>使用转职前的输出技能，伤害结果不受职业主动/被动Buff的加成</dd>
-                    <dt>面板攻击力的干扰：</dt>
+                    <dt class="text-danger">面板攻击力的干扰：</dt>
                     <dd>测试过程中全程展示人物面板，保证截取伤害截图时面板一致。</dd>
                 </dl>
             </section>
@@ -725,38 +757,37 @@
                 <p><span class="keywords-purple">普通安徒恩</span>副本的减伤率下限约为77.57%，对应的怪物防御值约为59470（86级角色）/62236（90级角色）。</p>
                 <p>测试对象为<span class="keywords-purple">震颤的大地</span>副本中左侧稀有怪物<span class="keywords-brown">湮灭之弗雷伊内斯</span>。
                 </p>
-                <br>
-                <img class="img-responsive" src="https://wx4.sinaimg.cn/mw690/005XcV4Sly1fbskou1yjzj30c103pt8q.jpg">
-                <br>
+
+
                 <p>首先，需要计算测试对象：<span class="keywords-purple">普通安徒恩</span>的<span class="keywords-purple">震颤的大地</span>副本中左侧稀有怪物<span
                         class="keywords-brown">湮灭之弗雷伊内斯</span>的原始防御值。</p>
-                <br>
-                <p>角色使用<span class="keywords-green">浮空击</span>攻击垃圾桶时，伤害结果为323623；攻击<span
+
+                <p>角色使用<span class="skill">浮空击</span>攻击垃圾桶时，伤害结果为323623；攻击<span
                         class="keywords-brown">湮灭之弗雷伊内斯</span>时，伤害结果为41449。</p>
                 <p>因此伤害比率为 41449/323623=12.81%，减伤率为87.19%，换算成防御值为117093。</p>
-                <br>
+
                 <p>然后，通过减防技能的施加，对测算的原始防御值进行检验，并初步试探减伤率下限。</p>
-                <br>
-                <p>角色对怪物使用<span class="keywords-green">暗影漩涡</span>时，伤害结果为61238。</p>
+
+                <p>角色对怪物使用<span class="skill">暗影漩涡</span>时，伤害结果为61238。</p>
                 <p>因此伤害比率为 61238/323623=18.92%，减伤率为81.08%，换算成防御值为73696。</p>
                 <p>实际减防比率为 1-73696/117093=37.06%，理论减防比率为36.5%，基本吻合。</p>
-                <br>
-                <p>角色对怪物使用<span class="keywords-green">侵蚀之普戾蒙</span>时，伤害结果为63655。</p>
+
+                <p>角色对怪物使用<span class="skill">侵蚀之普戾蒙</span>时，伤害结果为63655。</p>
                 <p>因此伤害比率为 63655/323623=19.67%，减伤率为80.33%，换算成防御值为70245。</p>
                 <p>实际减防比率为 1-70245/117093=40.01%，理论减防比率为40.0%，完全吻合。</p>
-                <br>
+
                 <p>之后，通过多个减防技能的施加，进一步试探减伤率下限。</p>
-                <br>
-                <p>角色对怪物使用<span class="keywords-green">暗影漩涡</span>和<span class="keywords-green">侵蚀之普戾蒙</span>时，伤害结果为72601。
+
+                <p>角色对怪物使用<span class="skill">暗影漩涡</span>和<span class="skill">侵蚀之普戾蒙</span>时，伤害结果为72601。
                 </p>
                 <p>因此伤害比率为 72601/323623=22.43%，减伤率为77.57%，换算成防御值为59470。</p>
                 <p>实际减防比率为 1-59470/117093=49.21%，理论减防比率为 36.5%+40.0%=76.5%，无法吻合，说明此时已触及减伤率下限。</p>
-                <br>
+
                 <p class="keywords-strong text-center">故
                     <span class="keywords-purple">
                         普通安徒恩
                         <b class="iconfont text-yellow text-danger" data-toggle="tooltip" data-placement="top"
-                           title="对应的怪物防御值约为59470（86级角色）/62236（90级角色）">&#xe698;</b>
+                           title="对应的怪物防御值约为59470（86级角色）/62236（90级角色）"></b>
                     </span>
                     副本的减伤率下限约为77.57%
                 </p>
@@ -766,38 +797,37 @@
                 <p><span class="keywords-purple">暴走安徒恩</span>副本的减伤率下限约为81.12%，对应的怪物防御值约为73900（86级角色）/77340（90级角色）。</p>
                 <p>测试对象为<span class="keywords-purple">震颤的大地</span>副本中左侧稀有怪物<span class="keywords-brown">湮灭之弗雷伊内斯</span>、<span
                         class="keywords-purple">擎天之柱</span>副本中二图稀有怪物<span class="keywords-brown">火焰之克瑞夫</span>。</p>
-                <br>
-                <img class="img-responsive" src="https://wx1.sinaimg.cn/mw690/005XcV4Sly1fbslkjm3z0j30c103pq2y.jpg">
-                <br>
+
+
                 <p>首先，需要计算测试对象：<span class="keywords-purple">暴走安徒恩</span>的<span class="keywords-purple">震颤的大地</span>副本中左侧稀有怪物<span
                         class="keywords-brown">湮灭之弗雷伊内斯</span>的原始防御值。</p>
-                <br>
+
                 <p>角色使用[浮空击]攻击垃圾桶时，伤害结果为323623；攻击<span class="keywords-brown">湮灭之弗雷伊内斯</span>时，伤害结果为36735。</p>
                 <p>因此伤害比率为 36735/323623=11.35%，减伤率为88.65%，换算成防御值为134326。</p>
-                <br>
+
                 <p>然后，通过减防技能的施加，对测算的原始防御值进行检验，并初步试探减伤率下限。</p>
-                <br>
-                <p>角色对怪物使用<span class="keywords-green">暗影漩涡</span>时，伤害结果为54297。</p>
+
+                <p>角色对怪物使用<span class="skill">暗影漩涡</span>时，伤害结果为54297。</p>
                 <p>因此伤害比率为 54297/323623=16.78%，减伤率为83.22%，换算成防御值为85316。</p>
                 <p>实际减防比率为 1-85316/134326=36.49%，理论减防比率为36.5%，完全吻合。</p>
-                <br>
-                <p>角色对怪物使用<span class="keywords-green">侵蚀之普戾蒙</span>时，伤害结果为56922。</p>
+
+                <p>角色对怪物使用<span class="skill">侵蚀之普戾蒙</span>时，伤害结果为56922。</p>
                 <p>因此伤害比率为 56922/323623=17.59%，减伤率为82.41%，换算成防御值为80588。</p>
                 <p>实际减防比率为 1-80588/134326=40.01%，理论减防比率为40.0%，完全吻合。</p>
-                <br>
+
                 <p>之后，通过多个减防技能的施加，进一步试探减伤率下限。</p>
-                <br>
-                <p>角色对怪物使用<span class="keywords-green">暗影漩涡</span>和<span class="keywords-green">侵蚀之普戾蒙</span>时，伤害结果为61108。
+
+                <p>角色对怪物使用<span class="skill">暗影漩涡</span>和<span class="skill">侵蚀之普戾蒙</span>时，伤害结果为61108。
                 </p>
                 <p>因此伤害比率为 61108/323623=18.88%，减伤率为81.12%，换算成防御值为73890。</p>
                 <p>实际减防比率为 1-73890/134326=44.99%，理论减防比率为 36.5%+40.0%=76.5%，无法吻合，说明此时已触及减伤率下限。</p>
-                <br>
+
                 <p class="keywords-strong text-center">
                     故
                     <span class="keywords-purple">
                         暴走安徒恩
                         <b class="iconfont text-yellow text-danger" data-toggle="tooltip" data-placement="top"
-                           title="怪物防御值约为 73900（86级角色）77340（90级角色）">&#xe698;</b>
+                           title="怪物防御值约为 73900（86级角色）77340（90级角色）"></b>
                     </span>
                     副本的减伤率下限约为81.12%</p>
             </section>
@@ -806,34 +836,32 @@
                 <p><span class="keywords-purple">普通卢克</span>副本的减伤率下限约为89.04%，对应的怪物防御值约为146250（90级角色）；</p>
                 <p>且由于<span class="keywords-purple">普通卢克</span>副本内怪物的防御均为189914，故攻击方等级不变时，减伤率下限对应的防御减少率约为23.00%；防御值不变时，对应的攻击方等级上限约为Lv
                     117。</p>
-                <br>
+
                 <p>测试对象为<span class="keywords-purple">诞生之圣所</span>副本中二图稀有怪物<span class="keywords-brown">全金属机甲斗神</span>。
                 </p>
-                <br>
-                <img class="img-responsive" src="https://wx1.sinaimg.cn/mw690/005XcV4Sly1fbsqpe3k3hj30c103p0sr.jpg">
-                <br>
-                <br>
+
+
                 <p>首先，需要计算测试对象：<span class="keywords-purple">普通卢克</span>的<span class="keywords-purple">诞生之圣</span>所副本中二图稀有怪物<span
                         class="keywords-brown">全金属机甲斗神</span>的原始防御值。</p>
-                <br>
-                <p>角色使用<span class="keywords-green">浮空击</span>攻击垃圾桶时，伤害结果为216780；攻击<span
+
+                <p>角色使用<span class="skill">浮空击</span>攻击垃圾桶时，伤害结果为216780；攻击<span
                         class="keywords-brown">全金属机甲斗神</span>时，伤害结果为18765。</p>
                 <p>因此伤害比率为 18765/216780=8.66%，减伤率为91.34%，换算成防御值为189942。</p>
-                <br> 与韩服玩家测算的189914相比，误差仅0.015%，在可容许的范围内。
-                <br>
+                与韩服玩家测算的189914相比，误差仅0.015%，在可容许的范围内。
+
                 <p>然后，通过减防技能的施加，初步试探减伤率下限。</p>
-                <br>
-                <p>角色对怪物使用<span class="keywords-green">暗影漩涡</span>时，伤害结果为23757。</p>
+
+                <p>角色对怪物使用<span class="skill">暗影漩涡</span>时，伤害结果为23757。</p>
                 <p>因此伤害比率为 <i>23757/216780=10.96%</i>，减伤率为89.04%，换算成防御值为146248。</p>
                 <p>实际减防比率为 <i>1-146248/216780=23.00%</i>，理论减防比率为26.6%，无法吻合，说明此时已触及减伤率下限。</p>
-                <br>
-                <p>角色对怪物使用<span class="keywords-green">侵蚀之普戾蒙</span>时，伤害结果为23757。</p>
+
+                <p>角色对怪物使用<span class="skill">侵蚀之普戾蒙</span>时，伤害结果为23757。</p>
                 <p>因此伤害比率为 <i>23757/216780=10.96%</i>，减伤率为89.04%，换算成防御值为146255。</p>
                 <p>实际减防比率为 <i>1-146255/216780=23.00%</i>，理论减防比率为40.0%，无法吻合，说明此时已触及减伤率下限。</p>
-                <br>
+
                 <p>之后，通过多个减防技能的施加，进一步试探减伤率下限。</p>
-                <br>
-                <p>角色对怪物使用<span class="keywords-green">暗影漩涡</span>和<span class="keywords-green">侵蚀之普戾蒙</span>时，伤害结果为23754。
+
+                <p>角色对怪物使用<span class="skill">暗影漩涡</span>和<span class="skill">侵蚀之普戾蒙</span>时，伤害结果为23754。
                 </p>
                 <p>因此伤害比率为 <i>23754/216780=10.96%</i>，减伤率为89.04%，换算成防御值为146269。</p>
                 <p>实际减防比率为 <i>1-146269/216780=22.99%</i>，理论减防比率为 26.6%+40.0%=66.6%，无法吻合，说明此时已触及减伤率下限。</p>
@@ -844,7 +872,7 @@
                         普通卢克
                         <b class="iconfont text-yellow text-danger" data-toggle="tooltip" data-placement="top"
                            title="对应的怪物防御值约为146250（90级角色）；
-                    且由于[普通卢克]副本内怪物的防御均为189914，故攻击方等级不变时，减伤率下限对应的防御减少率约为23.00%；防御值不变时，对应的攻击方等级上限约为Lv 117。">&#xe698;</b>
+                    且由于[普通卢克]副本内怪物的防御均为189914，故攻击方等级不变时，减伤率下限对应的防御减少率约为23.00%；防御值不变时，对应的攻击方等级上限约为Lv 117。"></b>
                     </span>副本的减伤率下限约为89.04%
                 </p>
             </section>
@@ -853,34 +881,33 @@
                 <p>固定减防类装备无法突破副本的减伤率下限。</p>
                 <p>测试对象为<span class="keywords-purple">震颤的大地</span>副本中左侧稀有怪物<span class="keywords-brown">湮灭之弗雷伊内斯</span>。
                 </p>
-                <img class="img-responsive" src="https://wx2.sinaimg.cn/mw690/005XcV4Sly1fbsqpdpavgj30e10330sq.jpg">
-                <br>
-                <br>
+
+
                 <p>前文已经测得，<span class="keywords-purple">暴走安徒恩</span>的<span class="keywords-purple">震颤的大地</span>副本中左侧稀有怪物<span
                         class="keywords-brown">湮灭之弗雷伊内斯</span>的原始防御值为134326。</p>
                 <p>由第一行数据可知，重复测试得到的原始防御值为134357，误差仅为0.023%，在可容许的范围内。</p>
-                <br>
+
                 <p>首先，通过固定减防类装备的施加，初步试探能否突破减伤率下限。</p>
-                <br>
+
                 <p>
                     穿戴
-                    <span class="keywords-pink">千蛛碎影之毒牙胸甲</span>
+                    <span class="item">千蛛碎影之毒牙胸甲</span>
                     的情况下，角色使用
-                    <span class="keywords-green">浮空击</span>
+                    <span class="skill">浮空击</span>
                     攻击垃圾桶时，伤害结果为328129；攻击
                     <span class="keywords-brown">湮灭之弗雷伊内斯</span>
                     时（已触发减防），伤害结果为40442。
                 </p>
                 <p>因此伤害比率为 40442/328129=12.33%，减伤率为87.67%，换算成防御值为122353。</p>
                 <p>实际减防值为 134357-122353=12003，理论减防值为 12000，完全吻合。</p>
-                <br>
+
                 <p>然后，通过减防技能的施加与固定减防类装备叠加，并初步试探能否突破减伤率下限。</p>
-                <br>
-                <p>穿戴<span class="keywords-pink">千蛛碎影之毒牙胸甲</span>的情况下，角色对怪物使用<span class="keywords-green">侵蚀之普戾蒙</span>时，伤害结果为61950。
+
+                <p>穿戴<span class="item">千蛛碎影之毒牙胸甲</span>的情况下，角色对怪物使用<span class="skill">侵蚀之普戾蒙</span>时，伤害结果为61950。
                 </p>
                 <p>因此伤害比率为 61950/134326=18.88%，减伤率为81.12%，换算成防御值为73903。</p>
                 <p>实际减防值为 134357-73903=60454，理论减防值为 12000+（134326-12000）*40%=60930，无法吻合，说明此时已触及减伤率下限。</p>
-                <br>
+
                 <p class="keywords-strong text-center">故固定减防类装备无法突破副本的减伤率下限。</p>
             </section>
             <section id="test-4">
@@ -888,41 +915,37 @@
                 <p>百分比减防类装备无法突破副本的减伤率下限。</p>
                 <p>测试对象为<span class="keywords-purple">震颤的大地</span>副本中左侧稀有怪物<span class="keywords-brown">湮灭之弗雷伊内斯</span>
                 </p>
-                <br>
-                <img class="img-responsive" src="https://wx3.sinaimg.cn/mw690/005XcV4Sly1fbsmhs0vm3j30c1033749.jpg">
-                <br>
-                <br>
                 <p>前文已经测得，<span class="keywords-purple">暴走安徒恩</span>的<span
                         class="keywords-brown">震颤的大地</span>副本中左侧稀有怪物<span class="keywords-brown">湮灭之弗雷伊内斯</span>的原始防御值为134326。
                 </p>
-                <br>
+
                 <p>首先，通过百分比减防类装备的施加，对测算的原始防御值进行检验，并初步试探能否突破减伤率下限。</p>
-                <br>
-                <p>穿戴<span class="keywords-pink">天劫</span>套装的情况下，角色使用<span class="keywords-green">浮空击</span>攻击垃圾桶时，伤害结果为306405；攻击<span
+
+                <p>穿戴<span class="item">天劫</span>套装的情况下，角色使用<span class="skill">浮空击</span>攻击垃圾桶时，伤害结果为306405；攻击<span
                         class="keywords-purple">湮灭之弗雷伊内斯</span>时，伤害结果为40110。</p>
                 <p>
                     因此伤害比率为 40110/306405=13.09%，减伤率为86.91%，换算成防御值为114193。
-                    <br>
-                    <br>
+
+
                     <i>（天劫的18%技能攻击力加成在计算伤害比率时，分子与分母中均具备此项，相抵后不影响伤害比率的计算结果，下同）</i>
                 </p>
                 <p>实际减防比率为 1-114193/134326=14.99%，理论减防比率为 20%*75%=15%，完全吻合。</p>
-                <br>
+
                 <p>然后，通过减防技能的施加与百分比减防类装备叠加，对测算的原始防御值进行检验，并初步试探能否突破减伤率下限。</p>
-                <br>
+
                 <p>
-                    穿戴<span class="keywords-pink">天劫套装</span>的情况下，角色对怪物使用<span class="keywords-green">暗影漩涡</span>时，伤害结果为55618
-                    <br>
-                    <br>
+                    穿戴<span class="item">天劫套装</span>的情况下，角色对怪物使用<span class="skill">暗影漩涡</span>时，伤害结果为55618
+
+
                     <i>（图中伤害为未暴击时数值，统一为暴击后数据 37079*1.5=55618）</i>
-                    <br>
+
                 </p>
                 <p>因此伤害比率为 55618/306405=18.15%，减伤率为81.85%，换算成防御值为77556。</p>
                 <p>实际减防比率为 1-77556/134326=42.26%，理论减防比率为 1-（1-32.1%）*（1-20%*75%）=42.285%，完全吻合。</p>
-                <br>
+
                 <p>之后，通过其他减防技能的施加与百分比减防类装备叠加，进一步试探能否突破减伤率下限。</p>
-                <br>
-                <p>穿戴<span class="keywords-pink">天劫</span>套装的情况下，角色对怪物使用<span class="keywords-green">侵蚀之普戾蒙</span>时，伤害结果为57835。
+
+                <p>穿戴<span class="item">天劫</span>套装的情况下，角色对怪物使用<span class="skill">侵蚀之普戾蒙</span>时，伤害结果为57835。
                 </p>
                 <p>因此伤害比率为 57835/306405=18.88%，减伤率为81.12%，换算成防御值为73924</p>
                 <p>实际减防比率为 1-73924/134326=44.97%，理论减防比率为 1-（1-40.0%）*（1-20%*75%）=49.0%，无法吻合，说明此时已触及减伤率下限。</p>
@@ -941,8 +964,8 @@
             </section>
             <section id="test-6">
                 <h2 class="text-yellow">结论</h2>
-                <h4 class="text-orange">减伤率下限</h4>
-                <ol class="text-list">
+                <h4 >减伤率下限</h4>
+                <ol >
                     <li><span class="keywords-purple">普通安徒恩</span>副本的减伤率下限约为77.57%，对应的怪物防御值约为59470（86级角色）/62236（90级角色）。
                     </li>
                     <li><span class="keywords-purple">暴走安徒恩</span>副本的减伤率下限约为81.12%，对应的怪物防御值约为73900（86级角色）/77340（90级角色）。
@@ -953,42 +976,28 @@
                     <li>固定减防类、百分比减防类、无视防御类装备均无法突破副本的减伤率下限。</li>
                 </ol>
             </section>
-        </div>
-        <div class="col-md-3 hidden-xs hidden-sm">
+        </article>
+        <nav class="col-md-3 hidden-xs hidden-sm">
             <div id="nav" class="navbar-example">
-                <ul class="nav navs-white" role="tablist">
+                <ul class="nav navs-white" role="tablist" data-spy="affix" data-offset-top="297" style="top: 60px">
+                    <li><a href="#preface">前言</a></li>
                     <li>
-                        <a href="#preface">前言</a>
-                    </li>
-                    <li>
-                        <a href="#debuff">减防算法</a>
-                        <ul class="nav  navs-white">
-                            <li>
-                                <a href="#fixed-percentage-item">固定类与百分比类装备</a>
-                            </li>
-                            <li>
-                                <a href="#percentage-item">百分比与百分比类装备</a>
-                            </li>
-                            <li>
-                                <a href="#skill-percentage-item">角色技能与百分比类装备</a>
-                            </li>
-                            <li>
-                                <a href="#skill-skill">角色技能与角色技能</a>
-                            </li>
-                            <li>
-                                <a href="#ignore">无视目标防御</a>
-                            </li>
-                            <li>
-                                <a href="#epilog">结论</a>
-                            </li>
+                        <a href="#fixed-percentage-item">减防算法</a>
+                        <ul class="nav">
+                            <li><a href="#fixed-percentage-item">固定类与百分比类装备</a></li>
+                            <li><a href="#percentage-item">百分比与百分比类装备</a></li>
+                            <li><a href="#skill-percentage-item">角色技能与百分比类装备</a></li>
+                            <li><a href="#skill-skill">角色技能与角色技能</a></li>
+                            <li><a href="#ignore">无视目标防御</a></li>
+                            <li><a href="#epilog">结论</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="#minimum">减伤率下限</a>
                     </li>
                     <li>
-                        <a href="#tests">相关测试</a>
-                        <ul class="nav  navs-white">
+                        <a href="#test">相关测试</a>
+                        <ul class="nav">
                             <li><a href="#test">测试条件</a></li>
                             <li><a href="#test-0">普通安徒恩副本</a></li>
                             <li><a href="#test-1">暴走安徒恩副本</a></li>
@@ -1001,7 +1010,7 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </nav>
     </div>
 </div>
 <!--Content End-->
@@ -1019,16 +1028,6 @@
     //refresh judge scrollbar > 355 add nav fixed
     //scrollbar > 355 add nav fixed
     $(function () {
-        if ($(this).scrollTop() >= 355) {
-            $("#nav").addClass("affix");
-        }
-        $(window).scroll(function () {
-            if ($(this).scrollTop() >= 355) {
-                $("#nav").addClass("affix");
-            } else {
-                $("#nav").removeClass("affix");
-            }
-        });
         $('[data-toggle="tooltip"]').tooltip()
     });
 
@@ -1043,13 +1042,13 @@
     $(function () {
         $('.navbar-example a:not(a.dropdown-toggle)').click(function () {
             $('html, body').animate({
-                scrollTop: $($.attr(this, 'href')).offset().top - 50
+                scrollTop: $($.attr(this, 'href')).offset().top - 60
             }, 500);
             return false;
         });
         $('.navbar-nav a:not(a.dropdown-toggle)').click(function () {
             $('html, body').animate({
-                scrollTop: $($.attr(this, 'href')).offset().top - 50
+                scrollTop: $($.attr(this, 'href')).offset().top - 60
             }, 500);
             return false;
         });
